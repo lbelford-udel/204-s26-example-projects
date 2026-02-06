@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=11 format=3 uid="uid://i76m1n6hsdxu"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item_seed.gd" id="1_qu2cw"]
+[ext_resource type="Resource" uid="uid://cyc24dpgajdep" path="res://inventory/crops/potato.tres" id="1_t8wvh"]
+[ext_resource type="PackedScene" uid="uid://ch4ywybt3q0kn" path="res://inventory/crops/potato.tscn" id="2_keek4"]
+[ext_resource type="Texture2D" uid="uid://cf50nnu2phvqb" path="res://art/potato-seeds.png" id="2_xgfbp"]
+[ext_resource type="Texture2D" uid="uid://bu6qlniko5ylf" path="res://art/tilled-harvestable-potato-land.png" id="3_b7af2"]
+[ext_resource type="Texture2D" uid="uid://bm4peohcsuuwy" path="res://art/tilled-harvestable-potato-watered-land.png" id="4_a2kni"]
+[ext_resource type="Texture2D" uid="uid://dfg53mpiyb3uh" path="res://art/tilled-seeded-land.png" id="5_kr3og"]
+[ext_resource type="Texture2D" uid="uid://crpaiqa7h22he" path="res://art/tilled-seeded-watered-land.png" id="6_tbwlf"]
+[ext_resource type="Texture2D" uid="uid://b4f1f25w1kouh" path="res://art/tilled-sprouting-land.png" id="7_8r7yd"]
+[ext_resource type="Texture2D" uid="uid://dcn0rw23cp6vq" path="res://art/tilled-sprouting-watered-land.png" id="8_rwhah"]
+
+[resource]
+script = ExtResource("1_qu2cw")
+current_growth_state = 0
+days_to_grow = 0
+day_growing = 0
+growable_seasons = []
+sell_price = 20
+future_crop = ExtResource("1_t8wvh")
+future_crop_scene = ExtResource("2_keek4")
+tilled_seeded = ExtResource("5_kr3og")
+tilled_seeded_watered = ExtResource("6_tbwlf")
+tilled_sprouting = ExtResource("7_8r7yd")
+tilled_sprouting_watered = ExtResource("8_rwhah")
+tilled_harvestable = ExtResource("3_b7af2")
+tilled_harvestable_watered = ExtResource("4_a2kni")
+name = "Potato Seeds"
+texture = ExtResource("2_xgfbp")
+is_active_item = false

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11g25xw2akm5"]
+
+[ext_resource type="Script" path="res://dialogue.gd" id="1_8b04v"]
+[ext_resource type="Script" path="res://dialogue_text_box.gd" id="1_i4asv"]
+
+[node name="dialogue_box" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8b04v")
+lines_to_read = ["first test line", "second test line", "third test line"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 192.0
+color = Color(0.372008, 0.203883, 0.067963, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 160.0
+
+[node name="text_box" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+script = ExtResource("1_i4asv")
+lines = ["first line", "second line", "third line"]
+
+[connection signal="lines_to_send" from="." to="text_box" method="_on_dialogue_box_lines_to_send"]

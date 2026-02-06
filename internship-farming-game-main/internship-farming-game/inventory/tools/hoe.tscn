@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dif6xewjgft72"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_ci111"]
+[ext_resource type="Texture2D" uid="uid://c3qgyhpas0k62" path="res://art/hoe.png" id="1_pf6q6"]
+[ext_resource type="Resource" uid="uid://v4x3akrnpomy" path="res://inventory/tools/hoe.tres" id="2_isdst"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="Hoe" type="StaticBody2D"]
+script = ExtResource("1_ci111")
+item = ExtResource("2_isdst")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pf6q6")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

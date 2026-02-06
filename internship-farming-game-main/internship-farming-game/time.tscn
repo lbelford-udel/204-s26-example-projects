@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://jp21sngpeyyj"]
+
+[ext_resource type="Script" path="res://time.gd" id="1_hnofo"]
+
+[node name="time" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hnofo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+color = Color(0.566843, 0.268341, 0.149166, 1)
+
+[node name="SeasonText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 192.0
+offset_bottom = 64.0
+text = "Season"
+
+[node name="DayText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 64.0
+offset_right = 296.0
+offset_bottom = 128.0
+text = "Day"
+
+[node name="DayOtwText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 200.0
+offset_bottom = 128.0
+text = "Day Otw"
+
+[node name="YearText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 296.0
+offset_bottom = 64.0
+text = "Year"
+
+[node name="TimeText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 106.0
+offset_right = 62.0
+offset_bottom = 170.0
+text = "6"
+text_direction = 2
+
+[node name="MinutesText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 106.0
+offset_right = 191.0
+offset_bottom = 170.0
+text = ":00"
+
+[node name="PMTimeText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 106.0
+offset_right = 216.0
+offset_bottom = 170.0
+text = "AM"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 168.0
+offset_bottom = 104.0
+text = "Day:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 184.0
+offset_bottom = 40.0
+text = "Year:"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 40.0
+text = "Season:"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 88.0
+offset_bottom = 104.0
+text = "Day Otw:"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 106.0
+offset_right = 57.0
+offset_bottom = 146.0
+text = "Time:"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

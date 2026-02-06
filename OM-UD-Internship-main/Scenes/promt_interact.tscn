@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp52ti1ip1qpl"]
+
+[ext_resource type="Texture2D" uid="uid://dlyv402tx6lxm" path="res://Assets/UI/prompt_interact1.png" id="1_w7oi7"]
+[ext_resource type="Script" uid="uid://c3hpexfse2u4p" path="res://Scripts/promt_interact.gd" id="2_lptjt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nomje"]
+radius = 6.0
+
+[node name="TextureRect" type="TextureRect"]
+z_index = 3
+offset_right = 23.0
+offset_bottom = 9.0
+texture = ExtResource("1_w7oi7")
+script = ExtResource("2_lptjt")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20, 24)
+shape = SubResource("CircleShape2D_nomje")
+
+[connection signal="body_entered" from="Area2D" to="." method="on_player_enter"]
+[connection signal="body_exited" from="Area2D" to="." method="on_player_exit"]

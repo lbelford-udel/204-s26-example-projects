@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvrkf247ui0gg"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_d472h"]
+[ext_resource type="Resource" uid="uid://cr0ynqxcf4sq" path="res://inventory/crops/cabbage.tres" id="2_ngcjf"]
+[ext_resource type="Texture2D" uid="uid://dcjyed6oyvdfd" path="res://art/cabbage-crop.png" id="3_iaxwc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="Cabbage" type="StaticBody2D"]
+script = ExtResource("1_d472h")
+item = ExtResource("2_ngcjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_iaxwc")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

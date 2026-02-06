@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://7rekffx3ftat"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_nu6w3"]
+[ext_resource type="Texture2D" uid="uid://cj7nppw8fq4ju" path="res://art/test-donut-pink-2.png" id="2_ykcqe"]
+
+[resource]
+script = ExtResource("1_nu6w3")
+name = "Donut"
+texture = ExtResource("2_ykcqe")
+is_active_item = false

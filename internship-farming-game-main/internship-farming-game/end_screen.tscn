@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxaxxsjrpbyx5"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_lheca"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lheca")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.710016, 0.419688, 0.259067, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 136.0
+offset_right = 1208.0
+offset_bottom = 584.0
+theme_override_font_sizes/normal_font_size = 110
+text = "Thanks for playing! "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 288.0
+offset_right = 400.0
+offset_bottom = 416.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Final Money:"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 288.0
+offset_right = 480.0
+offset_bottom = 360.0
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 384.0
+offset_right = 320.0
+offset_bottom = 520.0
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

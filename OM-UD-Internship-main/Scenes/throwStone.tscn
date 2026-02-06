@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcfroclj04dkr"]
+
+[ext_resource type="Script" uid="uid://5yyxhr2llst7" path="res://Scripts/throwStone.gd" id="1_ems7y"]
+[ext_resource type="Texture2D" uid="uid://cs58hold1dwra" path="res://Assets/throwStone1.png" id="1_s04hg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egy0l"]
+size = Vector2(8, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akktq"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cei8d"]
+size = Vector2(8, 4)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+z_index = 2
+collision_layer = 16
+collision_mask = 130
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+script = ExtResource("1_ems7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s04hg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_egy0l")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_akktq")
+disabled = true
+
+[node name="PlayerPusher" type="Area2D" parent="."]
+collision_layer = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPusher"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_cei8d")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

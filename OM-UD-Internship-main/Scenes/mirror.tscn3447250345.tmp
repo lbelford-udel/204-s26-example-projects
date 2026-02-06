@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bldahad0lev0m"]
+
+[ext_resource type="Script" uid="uid://bfhrxwd4q7l21" path="res://Scripts/mirror.gd" id="1_h3i6c"]
+[ext_resource type="Texture2D" uid="uid://db2xcyne23p7q" path="res://Assets/mirror_down1.png" id="2_h3i6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mjjl"]
+size = Vector2(6, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3i6c"]
+size = Vector2(6, 6)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+z_index = 2
+collision_layer = 16
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_h3i6c")
+
+[node name="RayRotater" type="Node2D" parent="."]
+rotation = 1.5707964
+
+[node name="RayCast2D" type="RayCast2D" parent="RayRotater"]
+position = Vector2(0, 12.000001)
+scale = Vector2(1.7197723, 0.4027824)
+target_position = Vector2(2.7704486e-06, 240.82481)
+collision_mask = 66
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h3i6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2mjjl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h3i6c")
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

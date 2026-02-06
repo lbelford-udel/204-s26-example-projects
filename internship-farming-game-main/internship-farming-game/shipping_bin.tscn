@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg4kv6ogpk246"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrng3"]
+size = Vector2(124, 60)
+
+[node name="shipping_bin" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64, 32)
+shape = SubResource("RectangleShape2D_jrng3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 128.0
+offset_bottom = 64.0
+color = Color(0.622142, 0.513427, 0.249592, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 67.0
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 24.0
+offset_right = 109.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 46
+text = "Sell"

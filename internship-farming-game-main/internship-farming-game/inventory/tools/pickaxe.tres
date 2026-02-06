@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://drqs367by64d7"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_51tye"]
+[ext_resource type="Texture2D" uid="uid://bc6b08evwxu4p" path="res://art/pickaxe.png" id="2_vpjhy"]
+
+[resource]
+script = ExtResource("1_51tye")
+name = "Pickaxe"
+texture = ExtResource("2_vpjhy")
+is_active_item = false

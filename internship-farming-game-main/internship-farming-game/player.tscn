@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5b0bdgeuwwea"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8mmaj"]
+[ext_resource type="Resource" uid="uid://dnqry4d1pg0if" path="res://inventory/playerInventory.tres" id="2_wruw2"]
+[ext_resource type="Texture2D" uid="uid://c84ifnvho2s0g" path="res://art/test-avatar-1.png" id="3_nu1ot"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4fhxp"]
+radius = 20.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytl6d"]
+radius = 14.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57hwa"]
+size = Vector2(33, 82)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_8mmaj")
+inventory = ExtResource("2_wruw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_nu1ot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 1)
+shape = SubResource("CapsuleShape2D_4fhxp")
+
+[node name="HurtBoxArea" type="Area2D" parent="."]
+
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBoxArea"]
+position = Vector2(-3, 0)
+shape = SubResource("CapsuleShape2D_ytl6d")
+debug_color = Color(0.888844, 0.289335, 0.402902, 0.42)
+
+[node name="HitBoxRight" type="Area2D" parent="."]
+
+[node name="HitBoxRightCollision" type="CollisionShape2D" parent="HitBoxRight"]
+position = Vector2(26, 1)
+shape = SubResource("RectangleShape2D_57hwa")
+debug_color = Color(0.707829, 0.480383, 0.232914, 0.42)
+
+[node name="HitBoxLeft" type="Area2D" parent="."]
+
+[node name="HitBoxLeftCollision" type="CollisionShape2D" parent="HitBoxLeft"]
+position = Vector2(-33, 1)
+shape = SubResource("RectangleShape2D_57hwa")
+debug_color = Color(0.707829, 0.480383, 0.232914, 0.42)
+
+[node name="HitBoxUp" type="Area2D" parent="."]
+
+[node name="HitBoxUpCollision" type="CollisionShape2D" parent="HitBoxUp"]
+position = Vector2(0, -40)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_57hwa")
+debug_color = Color(0.707829, 0.480383, 0.232914, 0.42)
+
+[node name="HitBoxDown" type="Area2D" parent="."]
+
+[node name="HitBoxDownCollision" type="CollisionShape2D" parent="HitBoxDown"]
+position = Vector2(0, 40)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_57hwa")
+debug_color = Color(0.707829, 0.480383, 0.232914, 0.42)

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=11 format=3 uid="uid://ccum161bxk847"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item_seed.gd" id="1_g2u72"]
+[ext_resource type="Resource" uid="uid://c0uwhl5fa2arv" path="res://inventory/crops/strawberry.tres" id="1_y1j4h"]
+[ext_resource type="PackedScene" uid="uid://bt4hko1mgn770" path="res://inventory/crops/strawberry.tscn" id="2_65q6c"]
+[ext_resource type="Texture2D" uid="uid://dj2b2vnw7b1bg" path="res://art/strawberry-seeds.png" id="2_apwry"]
+[ext_resource type="Texture2D" uid="uid://dk4d5d7weyom5" path="res://art/tilled-harvestable-strawberry-land.png" id="3_5k5np"]
+[ext_resource type="Texture2D" uid="uid://bpgks7r2gedxd" path="res://art/tilled-harvestable-strawberry-watered-land.png" id="4_qas72"]
+[ext_resource type="Texture2D" uid="uid://dfg53mpiyb3uh" path="res://art/tilled-seeded-land.png" id="5_uv1ha"]
+[ext_resource type="Texture2D" uid="uid://crpaiqa7h22he" path="res://art/tilled-seeded-watered-land.png" id="6_quh4p"]
+[ext_resource type="Texture2D" uid="uid://b4f1f25w1kouh" path="res://art/tilled-sprouting-land.png" id="7_tj5m6"]
+[ext_resource type="Texture2D" uid="uid://dcn0rw23cp6vq" path="res://art/tilled-sprouting-watered-land.png" id="8_00kbf"]
+
+[resource]
+script = ExtResource("1_g2u72")
+current_growth_state = 0
+days_to_grow = 0
+day_growing = 0
+growable_seasons = []
+future_crop = ExtResource("1_y1j4h")
+future_crop_scene = ExtResource("2_65q6c")
+tilled_seeded = ExtResource("5_uv1ha")
+tilled_seeded_watered = ExtResource("6_quh4p")
+tilled_sprouting = ExtResource("7_tj5m6")
+tilled_sprouting_watered = ExtResource("8_00kbf")
+tilled_harvestable = ExtResource("3_5k5np")
+tilled_harvestable_watered = ExtResource("4_qas72")
+name = "Strawberry Seeds"
+texture = ExtResource("2_apwry")
+is_active_item = false

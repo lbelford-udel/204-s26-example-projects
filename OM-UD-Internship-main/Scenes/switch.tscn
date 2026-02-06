@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://pagds6p4bmv3"]
+
+[ext_resource type="Script" uid="uid://nmxygt0i3gd5" path="res://Scripts/switch.gd" id="1_5e83j"]
+[ext_resource type="Texture2D" uid="uid://cttyvd2npeeir" path="res://Assets/switch_off1.png" id="2_cnh23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruj8l"]
+size = Vector2(6.45161, 7.01139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feaqf"]
+size = Vector2(6, 7.9375)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+z_index = 1
+collision_layer = 66
+script = ExtResource("1_5e83j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.93, 1.141)
+shape = SubResource("RectangleShape2D_ruj8l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cnh23")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 2
+shape = SubResource("RectangleShape2D_feaqf")
+
+[node name="MirrorVer" type="StaticBody2D" parent="."]
+z_index = 1
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorVer"]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.93, 1.141)
+shape = SubResource("RectangleShape2D_ruj8l")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MirrorVer"]
+visible = false
+modulate = Color(1, 1, 1, 0.6862745)
+texture = ExtResource("2_cnh23")
+
+[node name="Area2D" type="Area2D" parent="MirrorVer"]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorVer/Area2D"]
+z_index = 2
+shape = SubResource("RectangleShape2D_feaqf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="MirrorVer/Area2D" to="." method="_on_area_2d_area_entered"]

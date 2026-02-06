@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://d35ex3pbe0hls"]
+
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="1_p6g1o"]
+[ext_resource type="Script" path="res://inventory/inventory_slot.gd" id="2_33oav"]
+
+[sub_resource type="Resource" id="Resource_giqlo"]
+script = ExtResource("2_33oav")
+amount = 0
+is_active = false
+to_be_removed = false
+
+[resource]
+script = ExtResource("1_p6g1o")
+slots = Array[ExtResource("2_33oav")]([SubResource("Resource_giqlo")])

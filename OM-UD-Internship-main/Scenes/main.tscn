@@ -1,0 +1,499 @@
+[gd_scene load_steps=30 format=3 uid="uid://dwacrh8sc2a3"]
+
+[ext_resource type="PackedScene" uid="uid://b0jxk77jrielb" path="res://Scenes/player.tscn" id="1_cy6p8"]
+[ext_resource type="TileSet" uid="uid://bsuyd80vllxp" path="res://Assets/DungeonTileSet1.tres" id="2_45a2t"]
+[ext_resource type="Script" uid="uid://dh2rco6obxjcr" path="res://Scripts/Camera2D.gd" id="3_88jsc"]
+[ext_resource type="PackedScene" uid="uid://pagds6p4bmv3" path="res://Scenes/switch.tscn" id="3_wj0fx"]
+[ext_resource type="PackedScene" uid="uid://ysduhgik3m8p" path="res://Scenes/block.tscn" id="4_dw35i"]
+[ext_resource type="Script" uid="uid://qj7gdcj4q77a" path="res://Scripts/hud.gd" id="4_ueoa1"]
+[ext_resource type="PackedScene" uid="uid://bl46jcnmsx86w" path="res://Scenes/loadZone.tscn" id="5_56yql"]
+[ext_resource type="Texture2D" uid="uid://bvq2qtebu4o7x" path="res://Assets/UI/ui_item_frame12x_1.png" id="6_k12tt"]
+[ext_resource type="PackedScene" uid="uid://cuubhusxjh8qk" path="res://Scenes/cameraZone.tscn" id="6_phyup"]
+[ext_resource type="Texture2D" uid="uid://btr5y6uampbpo" path="res://Assets/UI/button_icon_SPC1.png" id="8_b3802"]
+[ext_resource type="PackedScene" uid="uid://dcfroclj04dkr" path="res://Scenes/throwStone.tscn" id="8_txos6"]
+[ext_resource type="Texture2D" uid="uid://cnlv0hb7ygl82" path="res://Assets/UI/button_icon_E1.png" id="9_fevyy"]
+[ext_resource type="Texture2D" uid="uid://bn6m7dhc6gupu" path="res://Assets/UI/healthBarOver1.png" id="9_ua3gb"]
+[ext_resource type="Texture2D" uid="uid://chv1kjtc5o84q" path="res://Assets/UI/healthBarProg1.png" id="10_4cuub"]
+[ext_resource type="Script" uid="uid://d1ahjjenvauh5" path="res://Scripts/pause_menu.gd" id="10_hibaj"]
+[ext_resource type="Texture2D" uid="uid://dslkhv0gjfucw" path="res://Assets/key1.png" id="10_u50mg"]
+[ext_resource type="PackedScene" uid="uid://byjk1tpax0rvn" path="res://Scenes/pit.tscn" id="11_cdr7a"]
+[ext_resource type="Texture2D" uid="uid://3pwrhcppvq77" path="res://Assets/UI/resume_button1.png" id="12_ueoa1"]
+[ext_resource type="PackedScene" uid="uid://8apjxnbkelw4" path="res://Scenes/title_screen_button.tscn" id="13_6vcvc"]
+[ext_resource type="PackedScene" uid="uid://13348twfxcb8" path="res://Scenes/trigger_zone.tscn" id="13_fdnlq"]
+[ext_resource type="Script" uid="uid://cwcj78pugwntj" path="res://Scripts/game_over_screen.gd" id="13_gt3je"]
+[ext_resource type="Texture2D" uid="uid://dxtj586isinbp" path="res://Assets/UI/play_again_button1.png" id="14_3pmx8"]
+[ext_resource type="PackedScene" uid="uid://b3ewcib6hdjyx" path="res://Scenes/door_locked.tscn" id="14_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://uikcvf57dodn" path="res://Scenes/mirror_collectable.tscn" id="15_k12tt"]
+[ext_resource type="PackedScene" uid="uid://bn08ysqwxamom" path="res://Scenes/key.tscn" id="15_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://cket0jkk02e4a" path="res://Scenes/enemy.tscn" id="26_cbgmd"]
+[ext_resource type="PackedScene" uid="uid://3mlixaw4tvab" path="res://Scenes/promt_movement.tscn" id="27_1w6v2"]
+[ext_resource type="PackedScene" uid="uid://bx0ronk34eov2" path="res://Scenes/sword_collectable.tscn" id="28_ueoa1"]
+[ext_resource type="Texture2D" uid="uid://cpd00a7eg4krh" path="res://Assets/sword_crack1.png" id="29_6vcvc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cy6p8")]
+position = Vector2(0, 8)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_45a2t")
+format = 2
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(65534, 65536, 0, -2, 65536, 1, -7, 65536, 1, 65529, 65536, 1, 65530, 65536, 1, -6, 65536, 1, -5, 65536, 1, 65531, 65536, 1, 65532, 65536, 0, -4, 65536, 1, -3, 65536, 1, 65533, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65537, 65536, 0, -131073, 65536, 0, -196608, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 1, 262143, 65536, 1, 1, 65536, 0, -65535, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 3, 65536, 1, -65533, 65536, 1, -65532, 65536, 1, 4, 65536, 1, 5, 65536, 1, -65531, 65536, 1, -65530, 65536, 1, 6, 65536, 1, -65538, 65536, 1, -65539, 65536, 1, -65540, 65536, 1, -65541, 65536, 1, -65542, 65536, 1, -65543, 65536, 1, -131079, 65536, 1, -131078, 65536, 1, -131077, 65536, 1, -131076, 65536, 1, -131075, 65536, 1, -131074, 65536, 1, -196607, 65536, 1, -131071, 65536, 1, -131070, 65536, 1, -196606, 65536, 1, -196605, 65536, 1, -131069, 65536, 1, -131068, 65536, 1, -196604, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -196602, 65536, 1, -131066, 65536, 1, 65537, 65536, 0, 65538, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 65541, 65536, 1, 65542, 65536, 1, 131078, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131070, 65536, 0, 131069, 65536, 0, 131068, 65536, 0, 131067, 65536, 1, 131066, 65536, 1, 131065, 65536, 1, 196601, 65536, 1, 196602, 65536, 1, 196603, 65536, 1, 196604, 65536, 1, 196605, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 262141, 65536, 1, 262140, 65536, 1, 262139, 65536, 1, 262138, 65536, 1, 262137, 65536, 1, -720903, 65536, 1, -655367, 65536, 1, -589831, 65536, 0, -524295, 65536, 0, -458759, 65536, 0, -393223, 65536, 0, -327687, 65536, 0, -720902, 65536, 1, -655366, 65536, 1, -589830, 65536, 0, -524294, 65536, 0, -458758, 65536, 0, -393222, 65536, 0, -327686, 65536, 0, -720901, 65536, 1, -655365, 65536, 1, -589829, 65536, 1, -524293, 65536, 1, -458757, 65536, 1, -393221, 65536, 0, -327685, 65536, 0, -720900, 65536, 1, -655364, 65536, 1, -589828, 65536, 1, -524292, 65536, 1, -458756, 65536, 1, -393220, 65536, 0, -327684, 65536, 0, -720899, 65536, 1, -655363, 65536, 1, -589827, 65536, 1, -524291, 65536, 1, -458755, 65536, 1, -393219, 65536, 0, -327683, 65536, 0, -720898, 65536, 0, -655362, 65536, 1, -589826, 65536, 1, -524290, 65536, 1, -458754, 65536, 1, -393218, 65536, 0, -327682, 65536, 0, -720897, 65536, 0, -655361, 65536, 0, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -786432, 65536, 0, -720896, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 65536, 0, -786431, 65536, 0, -720895, 65536, 1, -655359, 65536, 1, -589823, 65536, 1, -524287, 65536, 1, -458751, 65536, 0, -393215, 65536, 0, -786430, 65536, 0, -720894, 65536, 0, -655358, 65536, 0, -589822, 65536, 0, -524286, 65536, 1, -458750, 65536, 0, -393214, 65536, 0, -655357, 65536, 0, -524285, 65536, 1, -458749, 65536, 0, -393213, 65536, 0, -589820, 65536, 1, -524284, 65536, 1, -458748, 65536, 0, -393212, 65536, 0, -786427, 65536, 1, -720891, 65536, 1, -655355, 65536, 0, -589819, 65536, 0, -524283, 65536, 0, -458747, 65536, 0, -393211, 65536, 0, -786426, 65536, 1, -720890, 65536, 1, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 65536, 0, -393210, 65536, 0, -327690, 65536, 0, -393226, 65536, 0, -458762, 65536, 0, -524298, 65536, 0, -589834, 65536, 1, -655370, 65536, 1, -720906, 65536, 1, -720907, 65536, 1, -720908, 65536, 1, -720909, 65536, 1, -720910, 65536, 1, -720911, 65536, 0, -720912, 65536, 0, -720913, 65536, 0, -720914, 65536, 0, -720915, 65536, 1, -720916, 65536, 1, -720917, 65536, 1, -720918, 65536, 1, -720919, 65536, 0, -655383, 65536, 0, -589847, 65536, 1, -524311, 65536, 1, -458775, 65536, 1, -393239, 65536, 1, -327703, 65536, 1, -327702, 65536, 1, -327701, 65536, 1, -327700, 65536, 1, -327699, 65536, 0, -327698, 65536, 0, -327697, 65536, 0, -327696, 65536, 0, -327695, 65536, 0, -327694, 65536, 0, -327693, 65536, 0, -327692, 65536, 0, -327691, 65536, 0, -458771, 65536, 1, -524307, 65536, 1, -589843, 65536, 1, -655379, 65536, 1, -655380, 65536, 1, -655381, 65536, 1, -655382, 65536, 1, -589846, 65536, 1, -524310, 65536, 1, -458774, 65536, 1, -393238, 65536, 1, -393237, 65536, 1, -458773, 65536, 1, -524309, 65536, 1, -589845, 65536, 1, -589844, 65536, 1, -524308, 65536, 1, -458772, 65536, 1, -393236, 65536, 1, -393235, 65536, 0, -393234, 65536, 0, -458770, 65536, 1, -524306, 65536, 1, -589842, 65536, 0, -655378, 65536, 0, -655377, 65536, 0, -589841, 65536, 0, -524305, 65536, 0, -458769, 65536, 0, -393233, 65536, 0, -393232, 65536, 0, -458768, 65536, 0, -524304, 65536, 0, -589840, 65536, 0, -655376, 65536, 0, -655375, 65536, 0, -589839, 65536, 0, -524303, 65536, 1, -458767, 65536, 1, -393231, 65536, 0, -393230, 65536, 0, -458766, 65536, 1, -524302, 65536, 1, -589838, 65536, 1, -655374, 65536, 1, -655373, 65536, 1, -589837, 65536, 1, -524301, 65536, 1, -458765, 65536, 1, -393229, 65536, 0, -393228, 65536, 0, -458764, 65536, 1, -524300, 65536, 1, -589836, 65536, 1, -655372, 65536, 1, -655371, 65536, 1, -589835, 65536, 1, -524299, 65536, 0, -458763, 65536, 0, -393227, 65536, 0, -786423, 65536, 1, -720887, 65536, 1, -655351, 65536, 1, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -786422, 65536, 1, -720886, 65536, 1, -655350, 65536, 1, -589814, 65536, 0, -524278, 65536, 0, -458742, 65536, 0, -393206, 65536, 0, -786421, 65536, 1, -720885, 65536, 1, -655349, 65536, 1, -589813, 65536, 1, -524277, 65536, 1, -458741, 65536, 0, -393205, 65536, 0, -786420, 65536, 1, -720884, 65536, 1, -655348, 65536, 1, -589812, 65536, 1, -524276, 65536, 1, -458740, 65536, 0, -393204, 65536, 0, -786419, 65536, 1, -720883, 65536, 0, -655347, 65536, 0, -589811, 65536, 0, -524275, 65536, 0, -458739, 65536, 0, -393203, 65536, 0, -786418, 65536, 1, -720882, 65536, 0, -655346, 65536, 0, -589810, 65536, 0, -524274, 65536, 0, -458738, 65536, 0, -393202, 65536, 0, -786417, 65536, 1, -720881, 65536, 1, -655345, 65536, 1, -589809, 65536, 1, -524273, 65536, 1, -458737, 65536, 0, -393201, 65536, 0, -786416, 65536, 1, -720880, 65536, 1, -655344, 65536, 1, -589808, 65536, 1, -524272, 65536, 1, -458736, 65536, 0, -393200, 65536, 0, -458735, 65536, 0, -393199, 65536, 0, -786414, 65536, 1, -524270, 65536, 1, -458734, 65536, 0, -393198, 65536, 0, -786413, 65536, 1, -589805, 65536, 1, -524269, 65536, 0, -458733, 65536, 0, -393197, 65536, 0, -786412, 65536, 1, -720876, 65536, 0, -589804, 65536, 1, -524268, 65536, 0, -458732, 65536, 0, -393196, 65536, 0, -786411, 65536, 1, -720875, 65536, 0, -589803, 65536, 1, -524267, 65536, 0, -458731, 65536, 0, -393195, 65536, 0, -589802, 65536, 1, -524266, 65536, 1, -458730, 65536, 0, -393194, 65536, 0, -589806, 65536, 1, -655340, 65536, 0, -655339, 65536, 0, -655338, 65536, 1, -720874, 65536, 1, -786410, 65536, 1, -720878, 65536, 0, -655342, 65536, 0, -655341, 65536, 0, -720877, 65536, 0, -524271, 65536, 1, -720893, 65536, 0, -786429, 65536, 0)
+layer_1/name = "Walls"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(327672, 0, 0, 262136, 0, 0, 196600, 0, 0, 131064, 0, 0, 65528, 0, 0, -8, 0, 0, -65544, 0, 0, -131080, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -196601, 0, 0, -131065, 0, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 327679, 0, 0, 327678, 0, 0, 327677, 0, 0, 327676, 0, 0, 327675, 0, 0, 327674, 0, 0, 327673, 0, 0, -196609, 0, 65536, -262144, 0, 131072, -262152, 0, 0, -327688, 0, 0, -393224, 0, 0, -458760, 0, 327680, -524296, 0, 393216, -589832, 0, 0, -655368, 0, 0, -720904, 0, 0, -786425, 0, 0, -720889, 0, 0, -655353, 0, 0, -589817, 0, 393216, -524281, 0, 327680, -458745, 0, 0, -393209, 0, 0, -327673, 0, 0, -786440, 0, 0, -786439, 0, 0, -786438, 0, 0, -786437, 0, 0, -786436, 0, 0, -786435, 0, 0, -786434, 0, 0, -786433, 0, 65536, -851968, 0, 131072, -851967, 0, 0, -851966, 0, 0, -851965, 0, 0, -851964, 0, 0, -851963, 0, 0, -851962, 0, 0, -851961, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -262145, 0, 65536, -327680, 0, 131072, -786441, 0, 0, -786442, 0, 0, -786443, 0, 0, -786444, 0, 0, -786445, 0, 0, -786446, 0, 0, -786447, 0, 0, -786448, 0, 0, -786449, 0, 0, -786450, 0, 0, -786451, 0, 0, -786452, 0, 0, -786453, 0, 0, -786454, 0, 0, -786455, 0, 0, -786456, 0, 0, -720920, 0, 0, -655384, 0, 0, -589848, 0, 0, -524312, 0, 0, -458776, 0, 0, -393240, 0, 0, -327704, 0, 0, -262168, 0, 0, -262167, 0, 0, -262166, 0, 0, -262165, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -327689, 0, 0, -393225, 0, 0, -458761, 0, 327680, -524297, 0, 393216, -589833, 0, 0, -655369, 0, 0, -720905, 0, 0, -851960, 0, 0, -786424, 0, 0, -720888, 0, 0, -655352, 0, 0, -458744, 0, 0, -393208, 0, 0, -327672, 0, 0, -851959, 0, 0, -851958, 0, 0, -851957, 0, 0, -851956, 0, 0, -851955, 0, 0, -851954, 0, 0, -851953, 0, 0, -851952, 0, 0, -851951, 0, 0, -851950, 0, 0, -851949, 0, 0, -851948, 0, 0, -851947, 0, 0, -851946, 0, 0, -851945, 0, 0, -786409, 0, 0, -720873, 0, 0, -655337, 0, 0, -589801, 0, 0, -524265, 0, 0, -458729, 0, 0, -393193, 0, 0, -327657, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -327658, 0, 0, -524280, 0, 327680, -589816, 0, 393216, -589807, 0, 0, -655343, 0, 0, -720879, 0, 0, -786415, 0, 0, -589821, 0, 0, -786428, 0, 0, -720892, 0, 0, -589820, 0, 0, -655356, 0, 0)
+layer_2/name = "Decor"
+layer_2/navigation_enabled = false
+layer_2/tile_data = PackedInt32Array(-196609, 0, 1, -262144, 0, 65537, -327680, 0, 131073, -262145, 0, 196609, -458760, 0, 327681, -524296, 0, 262145, -589817, 0, 393217, -524281, 0, 458753, -786433, 0, 1, -851968, 0, 65537, -458761, 0, 458753, -524297, 0, 393217, -524280, 0, 327681, -589816, 0, 262145)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+z_index = 2
+position = Vector2(0, -10)
+offset = Vector2(0, 8)
+zoom = Vector2(9.01, 7.707)
+script = ExtResource("3_88jsc")
+
+[node name="UI" type="Control" parent="Camera2D"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = -61.0
+offset_top = -35.0
+offset_right = 67.0
+offset_bottom = 49.0
+
+[node name="HUD" type="Control" parent="Camera2D/UI"]
+layout_mode = 1
+anchor_top = -0.012
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_top = 1.0079995
+offset_bottom = 0.9729986
+script = ExtResource("4_ueoa1")
+
+[node name="healthBar" type="TextureProgressBar" parent="Camera2D/UI/HUD"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.012
+anchor_right = 0.22700001
+anchor_bottom = 0.11100001
+offset_left = -0.048000097
+offset_top = 1.8439989
+offset_right = -0.056001663
+offset_bottom = 8.655999
+max_value = 8.0
+value = 8.0
+rounded = true
+texture_over = ExtResource("9_ua3gb")
+texture_progress = ExtResource("10_4cuub")
+texture_progress_offset = Vector2(2, 0)
+
+[node name="itemFrame1" type="TextureRect" parent="Camera2D/UI/HUD"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85200006
+anchor_top = 0.16800001
+anchor_right = 0.91400003
+anchor_bottom = 0.83300006
+offset_left = -0.056007385
+offset_top = -0.0039992332
+offset_right = 0.0079956055
+offset_bottom = 0.00399971
+texture = ExtResource("6_k12tt")
+expand_mode = 1
+
+[node name="itemIcon" type="TextureRect" parent="Camera2D/UI/HUD/itemFrame1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.24300002
+anchor_right = 0.75000006
+anchor_bottom = 0.73800004
+offset_top = -0.0008761883
+offset_right = 0.8417444
+offset_bottom = 2.208447
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8261486, 0.6440071)
+expand_mode = 1
+
+[node name="buttonIcon" type="TextureRect" parent="Camera2D/UI/HUD/itemFrame1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25
+anchor_right = 0.19700001
+anchor_bottom = 0.252
+offset_top = -0.036361694
+offset_right = 0.08605087
+offset_bottom = -0.039162874
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("8_b3802")
+expand_mode = 3
+
+[node name="itemFrame2" type="TextureRect" parent="Camera2D/UI/HUD"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74200004
+anchor_top = 0.16700001
+anchor_right = 0.80500007
+anchor_bottom = 0.83300006
+offset_left = 0.023994446
+offset_top = -0.004000187
+offset_right = -0.040008545
+offset_bottom = 0.00399971
+texture = ExtResource("6_k12tt")
+expand_mode = 1
+
+[node name="itemIcon" type="TextureRect" parent="Camera2D/UI/HUD/itemFrame2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.24400002
+anchor_right = 0.75000006
+anchor_bottom = 0.73800004
+offset_top = 0.00022053719
+offset_bottom = 0.00051498413
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="buttonIcon" type="TextureRect" parent="Camera2D/UI/HUD/itemFrame2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.377
+offset_top = -0.012001037
+offset_right = 4.060608
+offset_bottom = 4.73223
+scale = Vector2(0.2176679, 0.23641369)
+texture = ExtResource("9_fevyy")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/UI/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_bottom = 10.8
+color = Color(0, 0, 0, 1)
+
+[node name="keyIcon" type="TextureRect" parent="Camera2D/UI/HUD"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 84.0
+offset_top = 2.0
+offset_right = 92.0
+offset_bottom = 10.0
+texture = ExtResource("10_u50mg")
+
+[node name="PauseMenu" type="Control" parent="Camera2D/UI"]
+process_mode = 3
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_hibaj")
+
+[node name="Background" type="ColorRect" parent="Camera2D/UI/PauseMenu"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 84.0
+color = Color(0, 0, 0, 0.47843137)
+
+[node name="ResumeButton" type="Button" parent="Camera2D/UI/PauseMenu"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 25.0
+offset_right = 80.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 4
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/UI/PauseMenu/ResumeButton"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 16.0
+texture = ExtResource("12_ueoa1")
+
+[node name="TitleScreenButton" parent="Camera2D/UI/PauseMenu" instance=ExtResource("13_6vcvc")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 47.0
+offset_right = 80.0
+offset_bottom = 63.0
+
+[node name="GameOverScreen" type="Control" parent="Camera2D/UI"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_gt3je")
+
+[node name="Background" type="ColorRect" parent="Camera2D/UI/GameOverScreen"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 84.0
+color = Color(0, 0, 0, 0.47843137)
+
+[node name="PlayAgainButton" type="Button" parent="Camera2D/UI/GameOverScreen"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 25.0
+offset_right = 80.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 4
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/UI/GameOverScreen/PlayAgainButton"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 16.0
+texture = ExtResource("14_3pmx8")
+
+[node name="TitleScreenButton" parent="Camera2D/UI/GameOverScreen" instance=ExtResource("13_6vcvc")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 47.0
+offset_right = 80.0
+offset_bottom = 63.0
+
+[node name="GameOverIcon" type="TextureRect" parent="Camera2D/UI/GameOverScreen"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 3.0
+offset_right = 86.0
+offset_bottom = 24.0
+
+[node name="Switch1" parent="." instance=ExtResource("3_wj0fx")]
+position = Vector2(-24, 7)
+
+[node name="Switch2" parent="." instance=ExtResource("3_wj0fx")]
+position = Vector2(28, -76)
+
+[node name="Switch3" parent="." instance=ExtResource("3_wj0fx")]
+position = Vector2(164, -83)
+
+[node name="Switch4" parent="." instance=ExtResource("3_wj0fx")]
+position = Vector2(-180, -89)
+sprite = "res://Assets/switch_on1.png"
+
+[node name="Block1_1" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(-4, -12)
+
+[node name="Block1_2" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(4, -12)
+
+[node name="Block2_1" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(-4, -68)
+
+[node name="Block2_2" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(4, -68)
+
+[node name="Block3_1" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(108, -68)
+
+[node name="Block3_2" parent="." instance=ExtResource("4_dw35i")]
+position = Vector2(116, -68)
+
+[node name="Block4_1" parent="." instance=ExtResource("4_dw35i")]
+visible = false
+position = Vector2(-132, -68)
+active = false
+
+[node name="Block4_2" parent="." instance=ExtResource("4_dw35i")]
+visible = false
+position = Vector2(-124, -68)
+active = false
+
+[node name="LoadZone1_2" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(0, -28)
+camera_zone = NodePath("../CameraZone_2")
+
+[node name="LoadZone2_1" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(0, -36)
+rotation = 3.14159
+camera_zone = NodePath("../CameraZone_1")
+
+[node name="LoadZone2_4" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(-60, -64)
+rotation = 4.712389
+camera_zone = NodePath("../CameraZone_4")
+
+[node name="LoadZone4_2" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(-68, -64)
+rotation = 1.5707964
+camera_zone = NodePath("../CameraZone_2")
+
+[node name="LoadZone2_3" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(60, -64)
+rotation = 1.5707964
+camera_zone = NodePath("../CameraZone_3")
+
+[node name="LoadZone3_2" parent="." node_paths=PackedStringArray("camera_zone") instance=ExtResource("5_56yql")]
+z_index = 1
+position = Vector2(68, -64)
+rotation = -1.5707964
+camera_zone = NodePath("../CameraZone_2")
+
+[node name="CameraZone_1" parent="." instance=ExtResource("6_phyup")]
+visible = false
+
+[node name="CameraZone_2" parent="." instance=ExtResource("6_phyup")]
+visible = false
+position = Vector2(0, -72)
+
+[node name="CameraZone_3" parent="." instance=ExtResource("6_phyup")]
+visible = false
+position = Vector2(128, -72)
+
+[node name="CameraZone_4" parent="." instance=ExtResource("6_phyup")]
+visible = false
+position = Vector2(-128, -72)
+
+[node name="ThrowStone_1" parent="." instance=ExtResource("8_txos6")]
+position = Vector2(180, -49)
+
+[node name="KillZone1" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+position = Vector2(-32, -12)
+scale = Vector2(1.9317238, 0.8)
+
+[node name="CollisionPolygon2D" parent="KillZone1" index="0"]
+polygon = PackedVector2Array(-12.424137, -15, 10.353447, -15, 10.353447, 11.25, -2.0706902, 11.25, -2.0706902, 38.75, 10.353447, 38.75, 10.353447, 48.75, 22.777584, 48.75, 22.777584, 38.75, 26.918962, 38.75, 26.918962, 11.25, 22.777584, 11.25, 22.777584, -15, 45.55517, -15, 45.55517, 55, -12.424137, 55)
+
+[node name="KillZone2_1" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+position = Vector2(0, -72)
+scale = Vector2(1.9317238, 0.56)
+
+[node name="CollisionPolygon2D" parent="KillZone2_1" index="0"]
+polygon = PackedVector2Array(-28.989653, -42.857147, -10.353447, -42.857147, -10.353447, -23.21428, -6.2120686, -23.21428, -6.2120686, 23.214294, -18.636206, 23.214294, -18.636206, -19.642853, -28.989653, -19.642853)
+
+[node name="KillZone2_2" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+position = Vector2(29, -75)
+
+[node name="CollisionPolygon2D" parent="KillZone2_2" index="0"]
+polygon = PackedVector2Array(27, -21, 6, -21, 6, -1, 6, 14, -16, 14, -16, -10, -18, -10, -18, 16, 7, 16, 7, -8, 27, -8)
+
+[node name="KillZone3" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+position = Vector2(128, -72)
+
+[node name="CollisionPolygon2D" parent="KillZone3" index="0"]
+polygon = PackedVector2Array(-56, -24, -56, -3, -36, -3, -36, 13, -28, 13, -28, -19, -4, -19, -4, 13, 20, 13, 20, 5, 52, 5, 52, 13, 56, 13, 56, -24, 16, -24, 16, -19, 52, -19, 52, 3, 16, 3, 16, 8, 8, 8, 8, -24)
+
+[node name="KillZone4_1" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+position = Vector2(-164, -81)
+
+[node name="CollisionPolygon2D" parent="KillZone4_1" index="0"]
+polygon = PackedVector2Array(-20, 41, 9, 41, 9, 21, 24, 21, 24, 12, 16, 12, 16, 4, 16, 4, 16, -15, -8, -15, -8, 5, -20, 5)
+
+[node name="KillZone4_2" parent="." instance=ExtResource("11_cdr7a")]
+z_index = 1
+
+[node name="CollisionPolygon2D" parent="KillZone4_2" index="0"]
+position = Vector2(-95, -79)
+polygon = PackedVector2Array(23, -17, -13, -17, -13, 2, -13, 2, -13, 10, -21, 10, -21, 20, 3, 20, 3, 4, 23, 4)
+
+[node name="TriggerZone" parent="." instance=ExtResource("13_fdnlq")]
+position = Vector2(-128, -79.00001)
+scale = Vector2(1.5877861, 0.16601166)
+
+[node name="LockedDoor" parent="." instance=ExtResource("14_jkdf5")]
+position = Vector2(-59, -64)
+rotation = 4.712389
+
+[node name="Key" parent="." instance=ExtResource("15_wsu2k")]
+position = Vector2(112, -80)
+
+[node name="MirrorCollectable" parent="." instance=ExtResource("15_k12tt")]
+position = Vector2(-128, -90)
+
+[node name="TriggerZone2" parent="." instance=ExtResource("13_fdnlq")]
+z_index = 1
+position = Vector2(4.7683716e-07, -100.00001)
+scale = Vector2(0.2942769, 0.19999997)
+
+[node name="Enemy2_1" parent="." instance=ExtResource("26_cbgmd")]
+position = Vector2(48, -79)
+start_direction = "down"
+
+[node name="Enemy2_2" parent="." instance=ExtResource("26_cbgmd")]
+position = Vector2(-48, -79)
+start_direction = "down"
+
+[node name="Enemy4_1" parent="." instance=ExtResource("26_cbgmd")]
+position = Vector2(-144, -48)
+start_direction = "right"
+
+[node name="MovementPromt" parent="." instance=ExtResource("27_1w6v2")]
+offset_left = -36.0
+offset_top = -20.0
+offset_right = -12.0
+offset_bottom = -4.0
+
+[node name="SwordCollectable" parent="." instance=ExtResource("28_ueoa1")]
+position = Vector2(-0.685, 18.005)
+
+[node name="SwordCrack1" type="Sprite2D" parent="."]
+position = Vector2(0.565, 21.96)
+scale = Vector2(0.585, 0.585)
+texture = ExtResource("29_6vcvc")
+
+[connection signal="player_died" from="Player" to="Camera2D/UI/GameOverScreen" method="game_end"]
+[connection signal="pressed" from="Camera2D/UI/PauseMenu/ResumeButton" to="Camera2D/UI/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Camera2D/UI/GameOverScreen/PlayAgainButton" to="Camera2D/UI/GameOverScreen" method="_on_play_again_button_pressed"]
+[connection signal="hit" from="Switch1" to="Block1_1" method="_on_switch_hit"]
+[connection signal="hit" from="Switch1" to="Block1_2" method="_on_switch_hit"]
+[connection signal="hit" from="Switch2" to="Block2_1" method="_on_switch_hit"]
+[connection signal="hit" from="Switch2" to="Block2_2" method="_on_switch_hit"]
+[connection signal="hit" from="Switch3" to="Block3_1" method="_on_switch_hit"]
+[connection signal="hit" from="Switch3" to="Block3_2" method="_on_switch_hit"]
+[connection signal="hit" from="Switch4" to="Block4_1" method="_on_switch_hit"]
+[connection signal="hit" from="Switch4" to="Block4_2" method="_on_switch_hit"]
+[connection signal="player_enter" from="LoadZone1_2" to="Enemy2_1" method="reset"]
+[connection signal="player_enter" from="LoadZone1_2" to="Enemy2_2" method="reset"]
+[connection signal="player_enter" from="LoadZone2_4" to="Enemy4_1" method="reset"]
+[connection signal="player_enter" from="LoadZone4_2" to="Enemy2_1" method="reset"]
+[connection signal="player_enter" from="LoadZone4_2" to="Enemy2_2" method="reset"]
+[connection signal="player_enter" from="LoadZone3_2" to="Enemy2_1" method="reset"]
+[connection signal="player_enter" from="LoadZone3_2" to="Enemy2_2" method="reset"]
+[connection signal="body_entered" from="CameraZone_1" to="Camera2D" method="_on_camera_zone_1_body_entered"]
+[connection signal="body_entered" from="CameraZone_2" to="Camera2D" method="_on_camera_zone_2_body_entered"]
+[connection signal="body_entered" from="ThrowStone_1" to="Player" method="_on_throw_stone_1_body_entered"]
+[connection signal="body_shape_entered" from="ThrowStone_1" to="Player" method="_on_throw_stone_1_body_shape_entered"]
+[connection signal="body_entered" from="TriggerZone" to="Switch4" method="_on_area_2d_area_entered"]
+[connection signal="key_pickup" from="Key" to="Camera2D/UI/HUD" method="key_get"]
+[connection signal="mirror_pickup" from="MirrorCollectable" to="Camera2D/UI/HUD" method="mirror_get"]
+[connection signal="body_entered" from="TriggerZone2" to="Camera2D/UI/GameOverScreen" method="game_end"]
+[connection signal="sword_pickup" from="SwordCollectable" to="Camera2D/UI/HUD" method="sword_get"]
+
+[editable path="KillZone1"]
+[editable path="KillZone2_1"]
+[editable path="KillZone2_2"]
+[editable path="KillZone3"]
+[editable path="KillZone4_1"]
+[editable path="KillZone4_2"]

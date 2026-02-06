@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://brokib6wpxwx5"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_odmjh"]
+[ext_resource type="Resource" uid="uid://drqs367by64d7" path="res://inventory/tools/pickaxe.tres" id="2_ddxi4"]
+[ext_resource type="Texture2D" uid="uid://bc6b08evwxu4p" path="res://art/pickaxe.png" id="3_rwnhf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="Pickaxe" type="StaticBody2D"]
+script = ExtResource("1_odmjh")
+item = ExtResource("2_ddxi4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.43051e-06, 1.43051e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("3_rwnhf")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck23y7yl45ase"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_6vm6g"]
+[ext_resource type="Resource" uid="uid://cire51j3npbau" path="res://inventory/crops/green_bean.tres" id="2_spg2n"]
+[ext_resource type="Texture2D" uid="uid://dmtpm87brsvpc" path="res://art/green-bean-crop.png" id="3_ucv8k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="Green Bean" type="StaticBody2D"]
+script = ExtResource("1_6vm6g")
+item = ExtResource("2_spg2n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ucv8k")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

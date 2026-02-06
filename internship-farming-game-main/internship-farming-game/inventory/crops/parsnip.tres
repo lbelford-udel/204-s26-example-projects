@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://jx5wp5eujp3m"]
+
+[ext_resource type="Script" path="res://inventory_item_crop.gd" id="1_0v7nu"]
+[ext_resource type="Texture2D" uid="uid://bh35absq1j1fq" path="res://art/parsnip-crop.png" id="2_74g0a"]
+
+[resource]
+script = ExtResource("1_0v7nu")
+sell_price = 35
+name = "Parsnip"
+texture = ExtResource("2_74g0a")
+is_active_item = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjk1tpax0rvn"]
+
+[ext_resource type="Script" uid="uid://cscu0ck2avg3v" path="res://Scripts/pit.gd" id="1_t2oif"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 32
+collision_mask = 17
+script = ExtResource("1_t2oif")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

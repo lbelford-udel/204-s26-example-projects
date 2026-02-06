@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://pkuyvb34khca"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_4f0ii"]
+[ext_resource type="Texture2D" uid="uid://dhx0tj7ugcm5h" path="res://art/watering-can.png" id="2_amugx"]
+
+[resource]
+script = ExtResource("1_4f0ii")
+name = "Watering Can"
+texture = ExtResource("2_amugx")
+is_active_item = false

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=11 format=3 uid="uid://be22jb0npbrhg"]
+
+[ext_resource type="Resource" uid="uid://cr0ynqxcf4sq" path="res://inventory/crops/cabbage.tres" id="1_jcagw"]
+[ext_resource type="Script" path="res://inventory/inventory_item_seed.gd" id="1_quld0"]
+[ext_resource type="PackedScene" uid="uid://dvrkf247ui0gg" path="res://inventory/crops/cabbage.tscn" id="2_bbm42"]
+[ext_resource type="Texture2D" uid="uid://10ybcpk0g8vw" path="res://art/cabbage-seeds.png" id="2_qy02k"]
+[ext_resource type="Texture2D" uid="uid://cwf6ndhg4x4wl" path="res://art/tilled-harvestable-cabbage-land.png" id="4_68nn2"]
+[ext_resource type="Texture2D" uid="uid://ctm5k3rdhy2h" path="res://art/tilled-harvestable-cabbage-watered-land.png" id="5_rbdma"]
+[ext_resource type="Texture2D" uid="uid://dfg53mpiyb3uh" path="res://art/tilled-seeded-land.png" id="6_b66mb"]
+[ext_resource type="Texture2D" uid="uid://crpaiqa7h22he" path="res://art/tilled-seeded-watered-land.png" id="7_2p6v1"]
+[ext_resource type="Texture2D" uid="uid://b4f1f25w1kouh" path="res://art/tilled-sprouting-land.png" id="8_ypn71"]
+[ext_resource type="Texture2D" uid="uid://dcn0rw23cp6vq" path="res://art/tilled-sprouting-watered-land.png" id="9_bxulo"]
+
+[resource]
+script = ExtResource("1_quld0")
+current_growth_state = 0
+days_to_grow = 0
+day_growing = 0
+growable_seasons = []
+future_crop = ExtResource("1_jcagw")
+future_crop_scene = ExtResource("2_bbm42")
+tilled_seeded = ExtResource("6_b66mb")
+tilled_seeded_watered = ExtResource("7_2p6v1")
+tilled_sprouting = ExtResource("8_ypn71")
+tilled_sprouting_watered = ExtResource("9_bxulo")
+tilled_harvestable = ExtResource("4_68nn2")
+tilled_harvestable_watered = ExtResource("5_rbdma")
+name = "Cabbage Seeds"
+texture = ExtResource("2_qy02k")
+is_active_item = false

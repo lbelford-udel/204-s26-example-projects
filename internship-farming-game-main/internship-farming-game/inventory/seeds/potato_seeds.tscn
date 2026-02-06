@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://xks6uxg8bja2"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_1400n"]
+[ext_resource type="Texture2D" uid="uid://cf50nnu2phvqb" path="res://art/potato-seeds.png" id="2_e1qbm"]
+[ext_resource type="Resource" uid="uid://i76m1n6hsdxu" path="res://inventory/seeds/potato_seeds.tres" id="2_yncdp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="PotatoSeeds" type="StaticBody2D"]
+script = ExtResource("1_1400n")
+item = ExtResource("2_yncdp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("2_e1qbm")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

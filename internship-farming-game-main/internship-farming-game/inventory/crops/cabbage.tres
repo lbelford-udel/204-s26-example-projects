@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://cr0ynqxcf4sq"]
+
+[ext_resource type="Script" path="res://inventory_item_crop.gd" id="1_hfjw7"]
+[ext_resource type="Texture2D" uid="uid://dcjyed6oyvdfd" path="res://art/cabbage-crop.png" id="2_uvetk"]
+
+[resource]
+script = ExtResource("1_hfjw7")
+sell_price = 0
+name = "Cabbage"
+texture = ExtResource("2_uvetk")
+is_active_item = false

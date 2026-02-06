@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://vb8miodaa6e"]
+
+[ext_resource type="Script" path="res://inventory/item_pickup.gd" id="1_ikdri"]
+[ext_resource type="Resource" uid="uid://pkuyvb34khca" path="res://inventory/tools/watering_can.tres" id="2_2fq11"]
+[ext_resource type="Texture2D" uid="uid://dhx0tj7ugcm5h" path="res://art/watering-can.png" id="3_86i03"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akux1"]
+radius = 32.0
+height = 64.0
+
+[node name="WateringCan" type="StaticBody2D"]
+script = ExtResource("1_ikdri")
+item = ExtResource("2_2fq11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.43051e-06, 1.43051e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("3_86i03")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_akux1")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

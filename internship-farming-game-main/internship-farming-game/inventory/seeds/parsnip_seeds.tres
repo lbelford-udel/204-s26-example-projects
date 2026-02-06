@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=11 format=3 uid="uid://dtdbpr4m01ms3"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item_seed.gd" id="1_s3g6f"]
+[ext_resource type="Resource" uid="uid://jx5wp5eujp3m" path="res://inventory/crops/parsnip.tres" id="1_y2md0"]
+[ext_resource type="Texture2D" uid="uid://cl4r475qe6ulf" path="res://art/parsnip-seeds.png" id="2_5a70r"]
+[ext_resource type="PackedScene" uid="uid://putr7uf8oidx" path="res://inventory/crops/parsnip.tscn" id="2_ytyf8"]
+[ext_resource type="Texture2D" uid="uid://cbkfl5qqam74b" path="res://art/tilled-harvestable-parsnip-land.png" id="4_1f5xu"]
+[ext_resource type="Texture2D" uid="uid://dy3lsedxhg0wy" path="res://art/tilled-harvestable-parsnip-watered-land.png" id="5_ltv0w"]
+[ext_resource type="Texture2D" uid="uid://dfg53mpiyb3uh" path="res://art/tilled-seeded-land.png" id="6_vdc8d"]
+[ext_resource type="Texture2D" uid="uid://crpaiqa7h22he" path="res://art/tilled-seeded-watered-land.png" id="7_m8k6g"]
+[ext_resource type="Texture2D" uid="uid://b4f1f25w1kouh" path="res://art/tilled-sprouting-land.png" id="8_16bj5"]
+[ext_resource type="Texture2D" uid="uid://dcn0rw23cp6vq" path="res://art/tilled-sprouting-watered-land.png" id="9_ruanc"]
+
+[resource]
+script = ExtResource("1_s3g6f")
+current_growth_state = 0
+days_to_grow = 0
+day_growing = 0
+growable_seasons = []
+sell_price = 20
+future_crop = ExtResource("1_y2md0")
+future_crop_scene = ExtResource("2_ytyf8")
+tilled_seeded = ExtResource("6_vdc8d")
+tilled_seeded_watered = ExtResource("7_m8k6g")
+tilled_sprouting = ExtResource("8_16bj5")
+tilled_sprouting_watered = ExtResource("9_ruanc")
+tilled_harvestable = ExtResource("4_1f5xu")
+tilled_harvestable_watered = ExtResource("5_ltv0w")
+name = "Parsnip Seeds"
+texture = ExtResource("2_5a70r")
+is_active_item = false

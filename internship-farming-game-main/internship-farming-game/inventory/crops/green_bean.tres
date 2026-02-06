@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://cire51j3npbau"]
+
+[ext_resource type="Script" path="res://inventory_item_crop.gd" id="1_7xqra"]
+[ext_resource type="Texture2D" uid="uid://dmtpm87brsvpc" path="res://art/green-bean-crop.png" id="2_fx6m1"]
+
+[resource]
+script = ExtResource("1_7xqra")
+sell_price = 60
+name = "Green Bean"
+texture = ExtResource("2_fx6m1")
+is_active_item = false

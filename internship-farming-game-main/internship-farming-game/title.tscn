@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bka3aimso4evk"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_6uep5"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uep5")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.235219, 0.384992, 0.212023, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 448.0
+offset_right = 448.0
+offset_bottom = 576.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 448.0
+offset_right = 960.0
+offset_bottom = 576.0
+text = "Exit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 96.0
+offset_right = 976.0
+offset_bottom = 544.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 114
+text = "Seven Days of Spring"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

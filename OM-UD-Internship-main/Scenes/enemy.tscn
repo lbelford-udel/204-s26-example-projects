@@ -1,0 +1,184 @@
+[gd_scene load_steps=16 format=3 uid="uid://cket0jkk02e4a"]
+
+[ext_resource type="Script" uid="uid://cnvb4c53bmb0h" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://b6nweu5j1ixg6" path="res://Assets/Enemy/enemy_inert_down1.png" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://o15s0uux828d" path="res://Assets/Enemy/enemy_walk_down1.png" id="2_1dp5w"]
+[ext_resource type="Texture2D" uid="uid://dct45g3sy1hxf" path="res://Assets/Enemy/enemy_idle_down1.png" id="2_afpow"]
+[ext_resource type="Texture2D" uid="uid://cm8myiqqgn34o" path="res://Assets/Enemy/enemy_walk_down2.png" id="3_auwsv"]
+[ext_resource type="Texture2D" uid="uid://d357xqk5bn8ic" path="res://Assets/Enemy/enemy_idle_side1.png" id="3_ghaa6"]
+[ext_resource type="Texture2D" uid="uid://bilf286onk1qy" path="res://Assets/Enemy/enemy_inert_up1.png" id="4_1dp5w"]
+[ext_resource type="Texture2D" uid="uid://01cuelhm42m" path="res://Assets/Enemy/enemy_walk_side1.png" id="4_auwsv"]
+[ext_resource type="Texture2D" uid="uid://d2vnnd4a0pdt0" path="res://Assets/Enemy/enemy_walk_side2.png" id="5_8uf12"]
+[ext_resource type="Texture2D" uid="uid://bcge0bsxigq04" path="res://Assets/Enemy/enemy_inert_side1.png" id="6_auwsv"]
+[ext_resource type="Texture2D" uid="uid://nneq0pg057l3" path="res://Assets/Enemy/enemy_walk_up1.png" id="6_po0sg"]
+[ext_resource type="Texture2D" uid="uid://cd8sb2a5ajd26" path="res://Assets/Enemy/enemy_walk_up2.png" id="7_haro7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f0kj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1dp5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_auwsv")
+}],
+"loop": true,
+"name": &"active_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_auwsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8uf12")
+}],
+"loop": true,
+"name": &"active_side",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_po0sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_haro7")
+}],
+"loop": true,
+"name": &"active_up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_afpow")
+}],
+"loop": true,
+"name": &"alert_down",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ghaa6")
+}],
+"loop": true,
+"name": &"alert_side",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1dp5w")
+}],
+"loop": true,
+"name": &"alert_up",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_afpow")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hurt_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ghaa6")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hurt_side",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1dp5w")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hurt_up",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hghv2")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_auwsv")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1dp5w")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hghv2"]
+radius = 5.0
+height = 10.000001
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 40.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.6, 0.6)
+collision_layer = 256
+collision_mask = 18
+motion_mode = 1
+script = ExtResource("1_1f0kj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1f0kj")
+animation = &"idle_down"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.9999998)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_hghv2")
+
+[node name="AggroZone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroZone"]
+shape = SubResource("CircleShape2D_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.9999998)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_hghv2")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+target_desired_distance = 4.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="on_hitbox_collision"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="AggroZone" to="." method="state_alert"]
+[connection signal="body_exited" from="AggroZone" to="." method="state_returning"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

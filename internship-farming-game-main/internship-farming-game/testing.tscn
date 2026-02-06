@@ -1,0 +1,212 @@
+[gd_scene load_steps=24 format=3 uid="uid://casinnr6aw1dg"]
+
+[ext_resource type="PackedScene" uid="uid://c5b0bdgeuwwea" path="res://player.tscn" id="1_m16bd"]
+[ext_resource type="Script" path="res://main_scene_start.gd" id="1_r4d37"]
+[ext_resource type="PackedScene" uid="uid://dy3xf8kokulcv" path="res://farm_tile.tscn" id="2_5abx4"]
+[ext_resource type="PackedScene" uid="uid://cw1ce7papfu5u" path="res://inventory/inventory.tscn" id="3_as27f"]
+[ext_resource type="Resource" uid="uid://natwx1doa12b" path="res://inventory/tile_inventory.tres" id="3_cow4w"]
+[ext_resource type="Resource" uid="uid://d35ex3pbe0hls" path="res://inventory/tile_inventory_2.tres" id="4_n7624"]
+[ext_resource type="Resource" uid="uid://b41dh512xtwaf" path="res://inventory/tile_inventory_3.tres" id="5_abl4v"]
+[ext_resource type="Resource" uid="uid://l25sixbvqvyt" path="res://inventory/tile_inventory_4.tres" id="6_n5jdq"]
+[ext_resource type="PackedScene" uid="uid://cdyy60hxi7k4a" path="res://inventory/inventory_hotbar_ui.tscn" id="7_n8qdd"]
+[ext_resource type="PackedScene" uid="uid://cwd443r74rul7" path="res://npc.tscn" id="8_ka1op"]
+[ext_resource type="PackedScene" uid="uid://c11g25xw2akm5" path="res://dialogue_box.tscn" id="9_0hxd5"]
+[ext_resource type="PackedScene" uid="uid://jp21sngpeyyj" path="res://time.tscn" id="10_0a2rx"]
+[ext_resource type="PackedScene" uid="uid://mun4jfyu0vc6" path="res://inventory/tools/hoe_2.tscn" id="11_eca7a"]
+[ext_resource type="PackedScene" uid="uid://cvy6cbncaqy3w" path="res://inventory/seeds/parsnip_seeds.tscn" id="12_ovkm3"]
+[ext_resource type="PackedScene" uid="uid://chl2aoiukl2h1" path="res://inventory/seeds/green_bean_seeds.tscn" id="13_uh4e5"]
+[ext_resource type="PackedScene" uid="uid://c28b8ndee5rtm" path="res://inventory/seeds/cabbage_seeds.tscn" id="14_rr00h"]
+[ext_resource type="PackedScene" uid="uid://bxtjre2s4msy7" path="res://inventory/seeds/strawberry_seeds.tscn" id="18_j5oxk"]
+[ext_resource type="PackedScene" uid="uid://brokib6wpxwx5" path="res://inventory/tools/pickaxe.tscn" id="20_blb3g"]
+[ext_resource type="PackedScene" uid="uid://vb8miodaa6e" path="res://inventory/tools/watering_can.tscn" id="20_rxim8"]
+[ext_resource type="PackedScene" uid="uid://ckxywn14ur284" path="res://inventory/tools/hammer.tscn" id="21_kwqwv"]
+[ext_resource type="PackedScene" uid="uid://dltsw14y8vcof" path="res://inventory/tools/axe.tscn" id="26_n2165"]
+[ext_resource type="PackedScene" uid="uid://brgj7mh3s2he5" path="res://money.tscn" id="28_g25nk"]
+[ext_resource type="PackedScene" uid="uid://bg4kv6ogpk246" path="res://shipping_bin.tscn" id="29_rygm8"]
+
+[node name="testing" type="Node2D"]
+script = ExtResource("1_r4d37")
+
+[node name="farm_tile" parent="." instance=ExtResource("2_5abx4")]
+position = Vector2(288, 160)
+tile_inventory = ExtResource("3_cow4w")
+
+[node name="farm_tile2" parent="." instance=ExtResource("2_5abx4")]
+position = Vector2(352, 160)
+tile_inventory = ExtResource("4_n7624")
+
+[node name="farm_tile3" parent="." instance=ExtResource("2_5abx4")]
+position = Vector2(416, 160)
+tile_inventory = ExtResource("5_abl4v")
+
+[node name="farm_tile4" parent="." instance=ExtResource("2_5abx4")]
+position = Vector2(288, 224)
+tile_inventory = ExtResource("6_n5jdq")
+
+[node name="player" parent="." instance=ExtResource("1_m16bd")]
+position = Vector2(224, 128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_ui" parent="CanvasLayer" instance=ExtResource("3_as27f")]
+offset_left = 192.0
+offset_top = 72.0
+offset_right = 896.0
+offset_bottom = 520.0
+is_main_inventory = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="inventory_hotbar_ui" parent="CanvasLayer2" instance=ExtResource("7_n8qdd")]
+offset_left = 176.0
+offset_top = 440.0
+offset_right = 880.0
+offset_bottom = 888.0
+
+[node name="npc" parent="." instance=ExtResource("8_ka1op")]
+position = Vector2(1056, 233)
+
+[node name="dialogue_box" parent="." instance=ExtResource("9_0hxd5")]
+visible = false
+offset_left = 333.0
+offset_top = 408.0
+offset_right = 333.0
+offset_bottom = 408.0
+
+[node name="time" parent="." instance=ExtResource("10_0a2rx")]
+offset_left = 896.0
+offset_right = 896.0
+
+[node name="testingTime" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 256.0
+offset_right = 244.0
+offset_bottom = 287.0
+text = "Advance Day"
+
+[node name="testingTime2" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 287.0
+offset_right = 256.0
+offset_bottom = 318.0
+text = "Advance Day Otw"
+
+[node name="testingTime3" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 318.0
+offset_right = 252.0
+offset_bottom = 349.0
+text = "Advance Year"
+
+[node name="testingTime4" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 349.0
+offset_right = 261.0
+offset_bottom = 380.0
+text = "Advance Season"
+
+[node name="testingTime5" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 376.0
+offset_right = 261.0
+offset_bottom = 407.0
+text = "End Day"
+
+[node name="testingTime6" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 408.0
+offset_right = 261.0
+offset_bottom = 439.0
+text = "Start Time"
+
+[node name="testingTime7" type="Button" parent="time"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 439.0
+offset_right = 261.0
+offset_bottom = 470.0
+text = "Stop  Time"
+
+[node name="hoe" parent="." instance=ExtResource("11_eca7a")]
+position = Vector2(88, 232)
+
+[node name="WateringCan" parent="." instance=ExtResource("20_rxim8")]
+position = Vector2(32, 256)
+
+[node name="ParsnipSeeds" parent="." instance=ExtResource("12_ovkm3")]
+position = Vector2(40, 176)
+
+[node name="ParsnipSeeds2" parent="." instance=ExtResource("12_ovkm3")]
+position = Vector2(152, 233)
+
+[node name="GreenBeanSeeds" parent="." instance=ExtResource("13_uh4e5")]
+position = Vector2(144, 296)
+
+[node name="GreenBeanSeeds2" parent="." instance=ExtResource("13_uh4e5")]
+position = Vector2(80, 288)
+
+[node name="StrawberrySeeds" parent="." instance=ExtResource("18_j5oxk")]
+position = Vector2(144, 448)
+
+[node name="StrawberrySeeds2" parent="." instance=ExtResource("18_j5oxk")]
+position = Vector2(184, 407)
+
+[node name="CabbageSeeds" parent="." instance=ExtResource("14_rr00h")]
+position = Vector2(104, 344)
+
+[node name="CabbageSeeds2" parent="." instance=ExtResource("14_rr00h")]
+position = Vector2(72, 384)
+
+[node name="Axe" parent="." instance=ExtResource("26_n2165")]
+position = Vector2(40, 368)
+
+[node name="Pickaxe" parent="." instance=ExtResource("20_blb3g")]
+position = Vector2(168, 368)
+
+[node name="Hammer" parent="." instance=ExtResource("21_kwqwv")]
+position = Vector2(120, 400)
+
+[node name="money" parent="." instance=ExtResource("28_g25nk")]
+offset_left = 1080.0
+offset_top = 128.0
+offset_right = 1080.0
+offset_bottom = 128.0
+
+[node name="shipping_bin" parent="." instance=ExtResource("29_rygm8")]
+position = Vector2(448, 0)
+
+[node name="RichTextLabel" parent="shipping_bin" index="3"]
+mouse_default_cursor_shape = 1
+
+[connection signal="money_change" from="player" to="money" method="set_money"]
+[connection signal="money_sold" from="CanvasLayer/inventory_ui" to="player" method="_on_inventory_ui_money_sold"]
+[connection signal="money_sold" from="CanvasLayer2/inventory_hotbar_ui" to="player" method="_on_inventory_ui_money_sold"]
+[connection signal="to_remove_slot_number" from="CanvasLayer2/inventory_hotbar_ui" to="player" method="_on_inventory_ui_to_remove_slot_number"]
+[connection signal="send_active_queue" from="CanvasLayer2/inventory_hotbar_ui/NinePatchRect/GridContainer" to="CanvasLayer2/inventory_hotbar_ui" method="_on_grid_container_send_active_queue"]
+[connection signal="npc_clicked" from="npc/Sprite2D" to="dialogue_box" method="_on_sprite_2d_npc_clicked"]
+[connection signal="dialogue_finished" from="dialogue_box/text_box" to="dialogue_box" method="_on_text_box_dialogue_finished"]
+[connection signal="check_growth" from="time" to="farm_tile" method="_on_time_check_growth"]
+[connection signal="check_growth" from="time" to="farm_tile2" method="_on_time_check_growth"]
+[connection signal="check_growth" from="time" to="farm_tile3" method="_on_time_check_growth"]
+[connection signal="check_growth" from="time" to="farm_tile4" method="_on_time_check_growth"]
+[connection signal="pressed" from="time/testingTime" to="time" method="_on_testing_time_pressed"]
+[connection signal="pressed" from="time/testingTime2" to="time" method="_on_testing_time_2_pressed"]
+[connection signal="pressed" from="time/testingTime3" to="time" method="_on_testing_time_3_pressed"]
+[connection signal="pressed" from="time/testingTime4" to="time" method="_on_testing_time_4_pressed"]
+[connection signal="pressed" from="time/testingTime5" to="time" method="_on_testing_time_5_pressed"]
+[connection signal="pressed" from="time/testingTime6" to="time" method="_on_testing_time_6_pressed"]
+[connection signal="pressed" from="time/testingTime7" to="time" method="_on_testing_time_7_pressed"]
+[connection signal="pressed" from="shipping_bin/Button" to="CanvasLayer/inventory_ui" method="sell_items"]
+[connection signal="pressed" from="shipping_bin/Button" to="CanvasLayer2/inventory_hotbar_ui" method="sell_items"]
+
+[editable path="CanvasLayer/inventory_ui"]
+[editable path="CanvasLayer2/inventory_hotbar_ui"]
+[editable path="npc"]
+[editable path="dialogue_box"]
+[editable path="shipping_bin"]

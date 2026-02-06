@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://dxm7wh05m1h4g"]
+
+[ext_resource type="Script" path="res://inventory_item_crop.gd" id="1_ytmyy"]
+[ext_resource type="Texture2D" uid="uid://cyv2s4h54c5qf" path="res://art/carrot-crop.png" id="2_avl0t"]
+
+[resource]
+script = ExtResource("1_ytmyy")
+sell_price = 0
+name = "Carrot"
+texture = ExtResource("2_avl0t")
+is_active_item = false

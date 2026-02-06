@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://oh7ch2jc71gi"]
+
+[ext_resource type="Texture2D" uid="uid://wubso31it52h" path="res://Assets/pit_falling1.png" id="1_lbwaw"]
+[ext_resource type="Texture2D" uid="uid://bdhtcernrv8ok" path="res://Assets/pit_falling2.png" id="2_vse3m"]
+[ext_resource type="Texture2D" uid="uid://cvooc1npyrn8x" path="res://Assets/pit_falling3.png" id="3_7sslf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp6cb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lbwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vse3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7sslf")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"pit_falling",
+"speed": 6.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_qp6cb")
+animation = &"pit_falling"
+autoplay = "pit_falling"
