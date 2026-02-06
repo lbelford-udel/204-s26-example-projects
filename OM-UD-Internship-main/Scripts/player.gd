@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 
 ##player stats
-var healthCurrent = 8
+@export var healthCurrent = 8
 
-var healthMax = 8
+@export var healthMax = 8
 
-var healthMin = 0
+@export var healthMin = 0
 
 ##used in player movement
-const SPEED = 30.0
+@export var SPEED = 30.0
 
-var movement_vector = Vector2(0,0)
+@export var movement_vector = Vector2(0,0)
 
 var directionX = 0
 
@@ -28,7 +28,7 @@ var respawn_pos_counter = 0.0
 var respawn_pos_time = 1.0
 
 ##used in sword state machine
-var current_state_sword = state_sword.sheath
+@export var current_state_sword = state_sword.sheath
 
 var atkTime = 0.05
 
@@ -39,9 +39,9 @@ var swordEnd = 0
 ##used in player state machine
 var current_state_player
 
-var canMove = true
+@export var canMove = true
 
-var canAttack = true
+@export var canAttack = true
 
 signal player_died
 
