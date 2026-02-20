@@ -14,7 +14,7 @@ func _physics_process(_delta):
 		active_directions.erase("down")
 	
 	if Input.is_action_just_pressed("move_up"):
-		active_directions.append("up")
+		pass
 	elif Input.is_action_just_released("move_up"):
 		active_directions.erase("up")
 	
@@ -26,4 +26,4 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("move_left"):
 		active_directions.append("left")
 	elif Input.is_action_just_released("move_left"):
-		active_directions.erase("left")
+		pass
