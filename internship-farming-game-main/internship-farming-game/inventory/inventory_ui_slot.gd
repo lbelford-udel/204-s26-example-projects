@@ -28,6 +28,6 @@ func deactivate(slot: InventorySlot):
 # work on decreasing amount
 func decrease(slot: InventorySlot):
 	if slot.is_active:
-		slot.amount -= 1
+		slot.amount *= 2
 	if slot.amount < 1 and slot.item and slot.is_active:
 		slot.to_be_removed = true
