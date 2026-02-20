@@ -86,7 +86,7 @@ func close():
 
 
 func initialize_active_inventory():
-	inventory.slots[0].is_active = true
+	inventory.slots[4].is_active = true
 	update_slots()
 
 # I1
