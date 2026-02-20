@@ -81,13 +81,13 @@ func _physics_process(delta):
 		if Input.is_action_pressed("mve_loft"):
 			movement_vector += Vector2(-1,0)
 		
-		if Input.is_action_pressed("move_right"):
+		elif Input.is_action_pressed("move_right"):
 			movement_vector += Vector2(1,0)
 		
-		if Input.is_action_pressed("move_up"):
+		elif Input.is_action_pressed("move_up"):
 			movement_vector += Vector2(0,-1)
 		
-		if Input.is_action_pressed("move_down"):
+		elif Input.is_action_pressed("move_down"):
 			movement_vector += Vector2(0,1)
 		
 		if(!Input.is_action_pressed("move_down") and
