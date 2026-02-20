@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://casinnr6aw1dg"]
+[gd_scene format=3 uid="uid://casinnr6aw1dg"]
 
 [ext_resource type="PackedScene" uid="uid://c5b0bdgeuwwea" path="res://player.tscn" id="1_m16bd"]
-[ext_resource type="Script" path="res://main_scene_start.gd" id="1_r4d37"]
+[ext_resource type="Script" uid="uid://ce0s662yq1cc" path="res://main_scene_start.gd" id="1_r4d37"]
 [ext_resource type="PackedScene" uid="uid://dy3xf8kokulcv" path="res://farm_tile.tscn" id="2_5abx4"]
 [ext_resource type="PackedScene" uid="uid://cw1ce7papfu5u" path="res://inventory/inventory.tscn" id="3_as27f"]
 [ext_resource type="Resource" uid="uid://natwx1doa12b" path="res://inventory/tile_inventory.tres" id="3_cow4w"]
@@ -24,60 +24,60 @@
 [ext_resource type="PackedScene" uid="uid://brgj7mh3s2he5" path="res://money.tscn" id="28_g25nk"]
 [ext_resource type="PackedScene" uid="uid://bg4kv6ogpk246" path="res://shipping_bin.tscn" id="29_rygm8"]
 
-[node name="testing" type="Node2D"]
+[node name="testing" type="Node2D" unique_id=114515131]
 script = ExtResource("1_r4d37")
 
-[node name="farm_tile" parent="." instance=ExtResource("2_5abx4")]
+[node name="farm_tile" parent="." unique_id=1082463942 instance=ExtResource("2_5abx4")]
 position = Vector2(288, 160)
 tile_inventory = ExtResource("3_cow4w")
 
-[node name="farm_tile2" parent="." instance=ExtResource("2_5abx4")]
+[node name="farm_tile2" parent="." unique_id=850922917 instance=ExtResource("2_5abx4")]
 position = Vector2(352, 160)
 tile_inventory = ExtResource("4_n7624")
 
-[node name="farm_tile3" parent="." instance=ExtResource("2_5abx4")]
+[node name="farm_tile3" parent="." unique_id=76609198 instance=ExtResource("2_5abx4")]
 position = Vector2(416, 160)
 tile_inventory = ExtResource("5_abl4v")
 
-[node name="farm_tile4" parent="." instance=ExtResource("2_5abx4")]
+[node name="farm_tile4" parent="." unique_id=2022765066 instance=ExtResource("2_5abx4")]
 position = Vector2(288, 224)
 tile_inventory = ExtResource("6_n5jdq")
 
-[node name="player" parent="." instance=ExtResource("1_m16bd")]
+[node name="player" parent="." unique_id=1628555186 instance=ExtResource("1_m16bd")]
 position = Vector2(224, 128)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1987301661]
 
-[node name="inventory_ui" parent="CanvasLayer" instance=ExtResource("3_as27f")]
+[node name="inventory_ui" parent="CanvasLayer" unique_id=679617864 instance=ExtResource("3_as27f")]
 offset_left = 192.0
 offset_top = 72.0
 offset_right = 896.0
 offset_bottom = 520.0
 is_main_inventory = true
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2082695575]
 
-[node name="inventory_hotbar_ui" parent="CanvasLayer2" instance=ExtResource("7_n8qdd")]
+[node name="inventory_hotbar_ui" parent="CanvasLayer2" unique_id=552601605 instance=ExtResource("7_n8qdd")]
 offset_left = 176.0
 offset_top = 440.0
 offset_right = 880.0
 offset_bottom = 888.0
 
-[node name="npc" parent="." instance=ExtResource("8_ka1op")]
+[node name="npc" parent="." unique_id=1541311175 instance=ExtResource("8_ka1op")]
 position = Vector2(1056, 233)
 
-[node name="dialogue_box" parent="." instance=ExtResource("9_0hxd5")]
+[node name="dialogue_box" parent="." unique_id=728470912 instance=ExtResource("9_0hxd5")]
 visible = false
 offset_left = 333.0
 offset_top = 408.0
 offset_right = 333.0
 offset_bottom = 408.0
 
-[node name="time" parent="." instance=ExtResource("10_0a2rx")]
+[node name="time" parent="." unique_id=468461166 instance=ExtResource("10_0a2rx")]
 offset_left = 896.0
 offset_right = 896.0
 
-[node name="testingTime" type="Button" parent="time"]
+[node name="testingTime" type="Button" parent="time" unique_id=790485611]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 256.0
@@ -85,7 +85,7 @@ offset_right = 244.0
 offset_bottom = 287.0
 text = "Advance Day"
 
-[node name="testingTime2" type="Button" parent="time"]
+[node name="testingTime2" type="Button" parent="time" unique_id=1275415099]
 layout_mode = 0
 offset_left = 112.0
 offset_top = 287.0
@@ -93,7 +93,7 @@ offset_right = 256.0
 offset_bottom = 318.0
 text = "Advance Day Otw"
 
-[node name="testingTime3" type="Button" parent="time"]
+[node name="testingTime3" type="Button" parent="time" unique_id=587944923]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 318.0
@@ -101,7 +101,7 @@ offset_right = 252.0
 offset_bottom = 349.0
 text = "Advance Year"
 
-[node name="testingTime4" type="Button" parent="time"]
+[node name="testingTime4" type="Button" parent="time" unique_id=1319579674]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 349.0
@@ -109,7 +109,7 @@ offset_right = 261.0
 offset_bottom = 380.0
 text = "Advance Season"
 
-[node name="testingTime5" type="Button" parent="time"]
+[node name="testingTime5" type="Button" parent="time" unique_id=1874629321]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 376.0
@@ -117,7 +117,7 @@ offset_right = 261.0
 offset_bottom = 407.0
 text = "End Day"
 
-[node name="testingTime6" type="Button" parent="time"]
+[node name="testingTime6" type="Button" parent="time" unique_id=436531242]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 408.0
@@ -125,7 +125,7 @@ offset_right = 261.0
 offset_bottom = 439.0
 text = "Start Time"
 
-[node name="testingTime7" type="Button" parent="time"]
+[node name="testingTime7" type="Button" parent="time" unique_id=64747771]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 439.0
@@ -133,52 +133,52 @@ offset_right = 261.0
 offset_bottom = 470.0
 text = "Stop  Time"
 
-[node name="hoe" parent="." instance=ExtResource("11_eca7a")]
+[node name="hoe" parent="." unique_id=300657564 instance=ExtResource("11_eca7a")]
 position = Vector2(88, 232)
 
-[node name="WateringCan" parent="." instance=ExtResource("20_rxim8")]
+[node name="WateringCan" parent="." unique_id=1656754318 instance=ExtResource("20_rxim8")]
 position = Vector2(32, 256)
 
-[node name="ParsnipSeeds" parent="." instance=ExtResource("12_ovkm3")]
+[node name="ParsnipSeeds" parent="." unique_id=2052575594 instance=ExtResource("12_ovkm3")]
 position = Vector2(40, 176)
 
-[node name="ParsnipSeeds2" parent="." instance=ExtResource("12_ovkm3")]
+[node name="ParsnipSeeds2" parent="." unique_id=1493660783 instance=ExtResource("12_ovkm3")]
 position = Vector2(152, 233)
 
-[node name="GreenBeanSeeds" parent="." instance=ExtResource("13_uh4e5")]
+[node name="GreenBeanSeeds" parent="." unique_id=425993010 instance=ExtResource("13_uh4e5")]
 position = Vector2(144, 296)
 
-[node name="GreenBeanSeeds2" parent="." instance=ExtResource("13_uh4e5")]
+[node name="GreenBeanSeeds2" parent="." unique_id=1317539333 instance=ExtResource("13_uh4e5")]
 position = Vector2(80, 288)
 
-[node name="StrawberrySeeds" parent="." instance=ExtResource("18_j5oxk")]
+[node name="StrawberrySeeds" parent="." unique_id=1443140414 instance=ExtResource("18_j5oxk")]
 position = Vector2(144, 448)
 
-[node name="StrawberrySeeds2" parent="." instance=ExtResource("18_j5oxk")]
+[node name="StrawberrySeeds2" parent="." unique_id=649248111 instance=ExtResource("18_j5oxk")]
 position = Vector2(184, 407)
 
-[node name="CabbageSeeds" parent="." instance=ExtResource("14_rr00h")]
+[node name="CabbageSeeds" parent="." unique_id=708236667 instance=ExtResource("14_rr00h")]
 position = Vector2(104, 344)
 
-[node name="CabbageSeeds2" parent="." instance=ExtResource("14_rr00h")]
+[node name="CabbageSeeds2" parent="." unique_id=1699879414 instance=ExtResource("14_rr00h")]
 position = Vector2(72, 384)
 
-[node name="Axe" parent="." instance=ExtResource("26_n2165")]
+[node name="Axe" parent="." unique_id=1791526085 instance=ExtResource("26_n2165")]
 position = Vector2(40, 368)
 
-[node name="Pickaxe" parent="." instance=ExtResource("20_blb3g")]
+[node name="Pickaxe" parent="." unique_id=994515779 instance=ExtResource("20_blb3g")]
 position = Vector2(168, 368)
 
-[node name="Hammer" parent="." instance=ExtResource("21_kwqwv")]
+[node name="Hammer" parent="." unique_id=463048523 instance=ExtResource("21_kwqwv")]
 position = Vector2(120, 400)
 
-[node name="money" parent="." instance=ExtResource("28_g25nk")]
+[node name="money" parent="." unique_id=2028446856 instance=ExtResource("28_g25nk")]
 offset_left = 1080.0
 offset_top = 128.0
 offset_right = 1080.0
 offset_bottom = 128.0
 
-[node name="shipping_bin" parent="." instance=ExtResource("29_rygm8")]
+[node name="shipping_bin" parent="." unique_id=326430103 instance=ExtResource("29_rygm8")]
 position = Vector2(448, 0)
 
 [node name="RichTextLabel" parent="shipping_bin" index="3"]

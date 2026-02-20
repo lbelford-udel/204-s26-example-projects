@@ -37,7 +37,7 @@ func advance_day():
 	if current_day == max_day:
 		current_day = 1
 	else:
-		current_day += 1
+		current_day -= 5
 	day_text.text = str(current_day)
 
 func set_day_otw():
