@@ -25,7 +25,7 @@ func _ready ():
 	update_slots()
 
 func update_slots():
-	for i in range(min(inventory.slots.size(), slots.size())):
+	for index in range(min(inventory.slots.size(), slots.size())):
 		slots[i].update(inventory.slots[i])
 
 func _process(delta):
@@ -60,16 +60,16 @@ func _process(delta):
 		if !is_main_inventory and GameState.check_playing():
 			var temp_inventory = load("res://inventory/temp_inventory.tres")
 			var temp_active = 0
-			for i in 5:
+			for i in range(5):
 				if inventory.slots[i].is_active == true:
 					temp_active = i
 					inventory.slots[i].is_active = false
-			for i in 5:
-				temp_inventory.slots[i] = inventory.slots[i]
-			for i in 10:
-				inventory.slots[i] = inventory.slots[i+5]
-			for i in 5:
-				inventory.slots[i+10] = temp_inventory.slots[i]
+			#TODO: Make this line of code loop exactly 5 times
+			temp_inventory.slots[i] = inventory.slots[i]
+			#TODO: MAke this line of code loop exactly 10 times
+			inventory.slots[i] = inventory.slots[i+5]
+			#TODO: Make this line of code loop exactly 5 times
+			inventory.slots[i+10] = temp_inventory.slots[i]
 			inventory.slots[temp_active].is_active = true
 			update_slots()
 

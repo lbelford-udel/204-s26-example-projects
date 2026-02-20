@@ -53,7 +53,6 @@ offset_left = 192.0
 offset_top = 72.0
 offset_right = 896.0
 offset_bottom = 520.0
-is_open = null
 is_main_inventory = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2082695575]
@@ -63,7 +62,6 @@ offset_left = 176.0
 offset_top = 440.0
 offset_right = 880.0
 offset_bottom = 888.0
-is_main_inventory = null
 
 [node name="npc" parent="." unique_id=1541311175 instance=ExtResource("8_ka1op")]
 position = Vector2(1056, 233)
