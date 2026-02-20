@@ -34,6 +34,7 @@
 
 [node name="Player" parent="." unique_id=1734427942 instance=ExtResource("1_cy6p8")]
 position = Vector2(0, 8)
+SPEED = -5.0
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1050090093]
 tile_set = ExtResource("2_45a2t")
