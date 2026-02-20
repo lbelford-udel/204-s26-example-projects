@@ -78,7 +78,7 @@ func _ready():
 func _physics_process(delta):
 	##handles player movement
 	if canMove:
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("mve_loft"):
 			movement_vector += Vector2(-1,0)
 		
 		if Input.is_action_pressed("move_right"):
