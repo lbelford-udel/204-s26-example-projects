@@ -5,7 +5,7 @@ var health = 2
 var start_position: Vector2
 @export var start_direction: String
 
-var movement_speed: float = 15.0
+var movement_speed = "15.0"
 var movement_target_position: Vector2
 
 var direction: String
