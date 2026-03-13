@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2qkx1exi3w4t"]
+
+[ext_resource type="Script" path="res://Scenes/UI/change_scene.gd" id="1_rlvr6"]
+
+[node name="SceneChangeButton" type="Button"]
+offset_right = 125.0
+offset_bottom = 57.0
+text = "Next"
+script = ExtResource("1_rlvr6")
+
+[connection signal="pressed" from="." to="." method="change_scene"]

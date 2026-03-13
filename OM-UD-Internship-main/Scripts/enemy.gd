@@ -69,7 +69,7 @@ func _physics_process(_delta):
 				$AnimatedSprite2D.scale.x = 1
 
 	if(current_state_enemy != state_enemy.hurt):
-		velocity = next_path_direction * movement_speed
+		velocity = next_path_direction * float(movement_speed)
 	move_and_slide()
 
 

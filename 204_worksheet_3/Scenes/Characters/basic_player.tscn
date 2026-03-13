@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cic67wtim4d16"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/basic_player.gd" id="1_0vra3"]
+[ext_resource type="Texture2D" uid="uid://b7b6l2k3v5l6k" path="res://Art/icon.svg" id="2_w821k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yiff"]
+size = Vector2(128, 128)
+
+[node name="BasicPlayer" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_0vra3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w821k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6yiff")
+debug_color = Color(0.802712, 0.0067333, 1, 0.42)

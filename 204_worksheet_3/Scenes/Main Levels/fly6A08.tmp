@@ -1,0 +1,849 @@
+[gd_scene load_steps=12 format=3 uid="uid://bacejbih45u6b"]
+
+[ext_resource type="PackedScene" uid="uid://dyecnlnb4mjhj" path="res://Scenes/Characters/flying_player.tscn" id="1_ksytu"]
+[ext_resource type="Script" path="res://Scenes/Main Levels/follow_cam.gd" id="2_rc0du"]
+[ext_resource type="PackedScene" uid="uid://b5wa364xoklko" path="res://Scenes/UI/goal_indicator.tscn" id="3_ib83v"]
+[ext_resource type="Script" path="res://Scenes/Objects/goal.gd" id="4_vjjq2"]
+[ext_resource type="PackedScene" uid="uid://bqgryg37malrb" path="res://Scenes/UI/level_complete.tscn" id="5_j7aji"]
+[ext_resource type="PackedScene" uid="uid://66cfg2mmm1d4" path="res://Scenes/Objects/platform.tscn" id="5_ju75u"]
+[ext_resource type="PackedScene" uid="uid://62ajfiilyy4b" path="res://Scenes/Objects/bouncy_ball.tscn" id="6_b2ef8"]
+[ext_resource type="PackedScene" uid="uid://6vwcnhd5tpca" path="res://Scenes/Objects/pillar.tscn" id="7_e7y86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhulw"]
+size = Vector2(2054, 815)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_61sdr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ganci"]
+friction = 0.45
+bounce = 0.4
+
+[node name="FlyingLevel" type="Node2D"]
+
+[node name="FlyingPlayer" parent="." instance=ExtResource("1_ksytu")]
+position = Vector2(579, 324)
+
+[node name="FollowCam" type="Camera2D" parent="FlyingPlayer"]
+script = ExtResource("2_rc0du")
+zoomed = false
+
+[node name="GoalIndicator" parent="FlyingPlayer" node_paths=PackedStringArray("player", "target_node") instance=ExtResource("3_ib83v")]
+position = Vector2(0, -200)
+scale = Vector2(2, 2)
+player = NodePath("..")
+target_node = NodePath("../../Goal")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(3106, -3483)
+collision_layer = 8
+script = ExtResource("4_vjjq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(0, -23.5)
+shape = SubResource("RectangleShape2D_fhulw")
+
+[node name="Environment" type="Node2D" parent="."]
+position = Vector2(760, -1293)
+
+[node name="Platform" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-516, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform3" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform22" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(542, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform23" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1061, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform24" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1600, 2820)
+scale = Vector2(2, 2)
+
+[node name="Platform25" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(2119, 2820)
+scale = Vector2(2, 2)
+
+[node name="Platform26" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(2655, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform27" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3174, 2823)
+scale = Vector2(2, 2)
+
+[node name="Platform4" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1096, -955)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform35" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-577, -1076)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform36" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-47.9999, -1197)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform37" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(471, -1303)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform38" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(969, -1424)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform5" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(540, 593)
+rotation = -0.010084
+scale = Vector2(2, 2)
+
+[node name="Platform12" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1996, 1983)
+scale = Vector2(2, 2)
+
+[node name="Platform6" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(982, 753)
+rotation = 0.707327
+scale = Vector2(2, 2)
+
+[node name="Platform7" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1407, 930)
+rotation = 0.0392844
+scale = Vector2(2, 2)
+
+[node name="Platform8" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1689, 1154)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform14" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1267, -2319)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform18" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1265, -1777)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform19" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3459, -1618)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform15" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3466, -1103)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform9" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(1694, 1678)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform13" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1059, 2832)
+scale = Vector2(2, 2)
+
+[node name="Platform20" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1366, 2003)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform21" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1361, 2527)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform10" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1367, 932)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform11" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1372, 402)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform16" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1378, -125)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform17" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1382, -647)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform2" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(-1374, 1470)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform28" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3489, 2091)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform29" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3494, 2615)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform30" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3488, 1020)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform31" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3483, 490)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform32" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3477, -37)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform33" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3473, -559)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform34" parent="Environment" instance=ExtResource("5_ju75u")]
+position = Vector2(3481, 1558)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="BouncyBall" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(22, 1172)
+gravity_scale = 0.0
+
+[node name="BouncyBall2" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(917, 1312)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall3" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1041, 1312)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall4" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1175, 1308)
+gravity_scale = 0.0
+
+[node name="BouncyBall95" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-553, 210)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall96" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-429, 210)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall97" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-295, 206)
+gravity_scale = 0.0
+
+[node name="BouncyBall104" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-961, -565)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall105" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-837, -565)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall106" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-703, -569)
+gravity_scale = 0.0
+
+[node name="BouncyBall107" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-502, -181)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall108" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-378, -181)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall109" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-244, -185)
+gravity_scale = 0.0
+
+[node name="BouncyBall110" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-258, -684)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall111" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-134, -684)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall112" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(0, -688)
+gravity_scale = 0.0
+
+[node name="BouncyBall113" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-1045, 2277)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall114" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-921, 2277)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall115" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-787, 2273)
+gravity_scale = 0.0
+
+[node name="BouncyBall98" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(-65, 346)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall99" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(59, 346)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall100" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(193, 342)
+gravity_scale = 0.0
+
+[node name="BouncyBall101" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1022, 411)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall102" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1146, 411)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall103" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1280, 407)
+gravity_scale = 0.0
+
+[node name="BouncyBall5" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2365, 1029)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall6" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2489, 1029)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall7" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2623, 1025)
+gravity_scale = 0.0
+
+[node name="BouncyBall8" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2374, 1129)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall9" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2498, 1129)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall10" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2632, 1125)
+gravity_scale = 0.0
+
+[node name="BouncyBall11" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2378, 1201)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall12" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2502, 1201)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall13" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2636, 1197)
+gravity_scale = 0.0
+
+[node name="BouncyBall59" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2858, -2460)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall60" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2982, -2460)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall61" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3116, -2464)
+gravity_scale = 0.0
+
+[node name="BouncyBall62" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2867, -2360)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall63" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2991, -2360)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall64" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3125, -2364)
+gravity_scale = 0.0
+
+[node name="BouncyBall65" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2871, -2288)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall66" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2995, -2288)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall67" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3129, -2292)
+gravity_scale = 0.0
+
+[node name="BouncyBall68" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2360, -2475)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall69" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2484, -2475)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall70" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2618, -2479)
+gravity_scale = 0.0
+
+[node name="BouncyBall71" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2369, -2375)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall72" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2493, -2375)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall73" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2627, -2379)
+gravity_scale = 0.0
+
+[node name="BouncyBall74" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2373, -2303)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall75" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2497, -2303)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall76" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2631, -2307)
+gravity_scale = 0.0
+
+[node name="BouncyBall77" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1902, -2445)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall78" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2026, -2445)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall79" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2160, -2449)
+gravity_scale = 0.0
+
+[node name="BouncyBall80" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1911, -2345)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall81" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2035, -2345)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall82" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2169, -2349)
+gravity_scale = 0.0
+
+[node name="BouncyBall83" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1915, -2273)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall84" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2039, -2273)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall85" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2173, -2277)
+gravity_scale = 0.0
+
+[node name="BouncyBall86" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1484, -2455)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall87" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1608, -2455)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall88" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1742, -2459)
+gravity_scale = 0.0
+
+[node name="BouncyBall89" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1493, -2355)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall90" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1617, -2355)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall91" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1751, -2359)
+gravity_scale = 0.0
+
+[node name="BouncyBall92" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1497, -2283)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall93" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1621, -2283)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall94" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1755, -2287)
+gravity_scale = 0.0
+
+[node name="BouncyBall14" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1429, -2087)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall15" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1553, -2087)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall16" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1687, -2091)
+gravity_scale = 0.0
+
+[node name="BouncyBall17" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1438, -1987)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall18" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1562, -1987)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall19" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1696, -1991)
+gravity_scale = 0.0
+
+[node name="BouncyBall20" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1442, -1915)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall21" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1566, -1915)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall22" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1700, -1919)
+gravity_scale = 0.0
+
+[node name="BouncyBall23" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1922, -2102)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall24" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2046, -2102)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall25" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2180, -2106)
+gravity_scale = 0.0
+
+[node name="BouncyBall26" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1931, -2002)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall27" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2055, -2002)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall28" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2189, -2006)
+gravity_scale = 0.0
+
+[node name="BouncyBall29" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(1935, -1930)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall30" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2059, -1930)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall31" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2193, -1934)
+gravity_scale = 0.0
+
+[node name="BouncyBall32" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2415, -2122)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall33" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2539, -2122)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall34" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2673, -2126)
+gravity_scale = 0.0
+
+[node name="BouncyBall35" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2424, -2022)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall36" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2548, -2022)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall37" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2682, -2026)
+gravity_scale = 0.0
+
+[node name="BouncyBall38" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2428, -1950)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall39" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2552, -1950)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall40" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2686, -1954)
+gravity_scale = 0.0
+
+[node name="BouncyBall41" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2868, -2122)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall42" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2992, -2122)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall43" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3126, -2126)
+gravity_scale = 0.0
+
+[node name="BouncyBall44" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2877, -2022)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall45" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3001, -2022)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall46" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3135, -2026)
+gravity_scale = 0.0
+
+[node name="BouncyBall47" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2881, -1950)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall48" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3005, -1950)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall49" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3139, -1954)
+gravity_scale = 0.0
+
+[node name="BouncyBall50" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2868, -2122)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall51" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2992, -2122)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall52" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3126, -2126)
+gravity_scale = 0.0
+
+[node name="BouncyBall53" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2877, -2022)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall54" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3001, -2022)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall55" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3135, -2026)
+gravity_scale = 0.0
+
+[node name="BouncyBall56" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(2881, -1950)
+physics_material_override = SubResource("PhysicsMaterial_61sdr")
+gravity_scale = 0.0
+
+[node name="BouncyBall57" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3005, -1950)
+physics_material_override = SubResource("PhysicsMaterial_ganci")
+gravity_scale = 0.0
+
+[node name="BouncyBall58" parent="Environment" instance=ExtResource("6_b2ef8")]
+position = Vector2(3139, -1954)
+gravity_scale = 0.0
+
+[node name="Pillar" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(367, -274)
+gravity_scale = 0.0
+
+[node name="Pillar2" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(2028, -22)
+gravity_scale = 0.0
+
+[node name="Pillar3" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(2944, 1690)
+rotation = -1.43632
+gravity_scale = 0.0
+
+[node name="Pillar4" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(981, 1972)
+rotation = 0.182327
+gravity_scale = 0.0
+
+[node name="Pillar8" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(1503, 2344)
+rotation = 0.182327
+gravity_scale = 0.0
+
+[node name="Pillar9" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(1865, 2384)
+rotation = -0.660977
+gravity_scale = 0.0
+
+[node name="Pillar5" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(-479, 552)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar6" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(-887, 763)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar7" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(-70, 778)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar10" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(2570, 464)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar11" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(2162, 675)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar12" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(2979, 690)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar13" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(1383, -878)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar14" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(975, -667)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="Pillar15" parent="Environment" instance=ExtResource("7_e7y86")]
+position = Vector2(1792, -652)
+rotation = 1.57788
+gravity_scale = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelComplete" parent="CanvasLayer" instance=ExtResource("5_j7aji")]
+visible = false
+top_level = true
+visibility_layer = 1
+anchors_preset = -1
+anchor_top = 0.003
+offset_top = -1.944
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+
+[editable path="FlyingPlayer/GoalIndicator"]

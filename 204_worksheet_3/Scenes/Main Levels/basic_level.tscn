@@ -1,0 +1,276 @@
+[gd_scene load_steps=12 format=3 uid="uid://pdt7hngywhnl"]
+
+[ext_resource type="PackedScene" uid="uid://66cfg2mmm1d4" path="res://Scenes/Objects/platform.tscn" id="1_2u8fr"]
+[ext_resource type="Script" path="res://Scenes/Main Levels/follow_cam.gd" id="2_e54d0"]
+[ext_resource type="PackedScene" uid="uid://cic67wtim4d16" path="res://Scenes/Characters/basic_player.tscn" id="2_i37mo"]
+[ext_resource type="PackedScene" uid="uid://b5wa364xoklko" path="res://Scenes/UI/goal_indicator.tscn" id="2_y4m7x"]
+[ext_resource type="PackedScene" uid="uid://62ajfiilyy4b" path="res://Scenes/Objects/bouncy_ball.tscn" id="3_1kutb"]
+[ext_resource type="Script" path="res://Scenes/Objects/goal.gd" id="4_gbcdy"]
+[ext_resource type="Script" path="res://Scenes/Objects/disappearing_platform.gd" id="4_i0muk"]
+[ext_resource type="PackedScene" uid="uid://bqgryg37malrb" path="res://Scenes/UI/level_complete.tscn" id="5_qsq1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhulw"]
+size = Vector2(2054, 815)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d6hpo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3bcgy"]
+friction = 0.45
+bounce = 0.4
+
+[node name="BasicLevel" type="Node2D"]
+
+[node name="BasicPlayer" parent="." instance=ExtResource("2_i37mo")]
+position = Vector2(357, 105)
+
+[node name="FollowCam" type="Camera2D" parent="BasicPlayer"]
+script = ExtResource("2_e54d0")
+
+[node name="GoalIndicator" parent="BasicPlayer" node_paths=PackedStringArray("player", "target_node") instance=ExtResource("2_y4m7x")]
+position = Vector2(0, -200)
+scale = Vector2(2, 2)
+player = NodePath("..")
+target_node = NodePath("../../Goal")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(3262, 1465)
+collision_layer = 8
+script = ExtResource("4_gbcdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(0.5, -25)
+shape = SubResource("RectangleShape2D_fhulw")
+
+[node name="DisappearingPlatform" parent="." instance=ExtResource("1_2u8fr")]
+position = Vector2(3240, 102)
+scale = Vector2(2, 2)
+script = ExtResource("4_i0muk")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Platform" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(270, 357)
+scale = Vector2(2, 2)
+
+[node name="Platform3" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(789, 357)
+scale = Vector2(2, 2)
+
+[node name="Platform4" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(1240, 314)
+rotation = -0.216822
+scale = Vector2(2, 2)
+
+[node name="Platform5" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(1809, 246)
+rotation = -0.010084
+scale = Vector2(2, 2)
+
+[node name="Platform12" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3265, 1636)
+scale = Vector2(2, 2)
+
+[node name="Platform6" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2251, 406)
+rotation = 0.707327
+scale = Vector2(2, 2)
+
+[node name="Platform7" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2676, 583)
+rotation = 0.0392844
+scale = Vector2(2, 2)
+
+[node name="Platform8" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2958, 807)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform14" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2971, -115)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform18" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2969, -635)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform19" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3449, -630)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform20" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2975, -1162)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform21" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3455, -1157)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform15" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3456, -115)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="Platform9" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(2963, 1331)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform10" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3566, 1345)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform11" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3561, 815)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform16" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3555, 288)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform17" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(3551, -234)
+rotation = 1.56022
+scale = Vector2(2, 2)
+
+[node name="Platform2" parent="Environment" instance=ExtResource("1_2u8fr")]
+position = Vector2(52, 143)
+rotation = -1.5708
+scale = Vector2(2, 2)
+
+[node name="BouncyBall" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(727, -26)
+
+[node name="BouncyBall2" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(1622, 114)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall3" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(1746, 114)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall4" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(1880, 110)
+
+[node name="BouncyBall5" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3070, -169)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall6" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3194, -169)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall7" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3328, -173)
+
+[node name="BouncyBall8" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3079, -69)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall9" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3203, -69)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall10" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3337, -73)
+
+[node name="BouncyBall11" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3083, 3)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall12" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3207, 3)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall13" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3341, -1)
+
+[node name="BouncyBall14" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3064, -438)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall15" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3188, -438)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall16" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3322, -442)
+
+[node name="BouncyBall17" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3073, -338)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall18" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3197, -338)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall19" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3331, -342)
+
+[node name="BouncyBall20" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3077, -266)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall21" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3201, -266)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall22" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3335, -270)
+
+[node name="BouncyBall23" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3067, -725)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall24" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3191, -725)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall25" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3325, -729)
+
+[node name="BouncyBall26" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3076, -625)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall27" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3200, -625)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall28" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3334, -629)
+
+[node name="BouncyBall29" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3080, -553)
+physics_material_override = SubResource("PhysicsMaterial_d6hpo")
+
+[node name="BouncyBall30" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3204, -553)
+physics_material_override = SubResource("PhysicsMaterial_3bcgy")
+
+[node name="BouncyBall31" parent="Environment" instance=ExtResource("3_1kutb")]
+position = Vector2(3338, -557)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelComplete" parent="CanvasLayer" instance=ExtResource("5_qsq1c")]
+visible = false
+top_level = true
+visibility_layer = 1
+anchors_preset = -1
+anchor_top = 0.003
+offset_top = -1.944
+next_scene = "res://Scenes/Main Levels/flying_level.tscn"
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+[connection signal="level_complete" from="Goal" to="DisappearingPlatform" method="disappear"]
+[connection signal="level_complete" from="Goal" to="CanvasLayer/LevelComplete" method="show_ui"]
+
+[editable path="BasicPlayer/GoalIndicator"]

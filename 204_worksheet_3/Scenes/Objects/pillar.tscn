@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6vwcnhd5tpca"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/random_color_mesh.gd" id="1_u1l3b"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iomar"]
+
+[node name="Pillar" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+rotation = -1.5708
+scale = Vector2(519.75, 94)
+mesh = SubResource("CapsuleMesh_iomar")
+script = ExtResource("1_u1l3b")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(47, 260, -48, 260, -71, 221, -91, 84, -94, -1, -91, -91, -67, -236, -46, -260, 46, -260, 67, -235, 91, -93, 94, 1, 91, 87, 72, 217)

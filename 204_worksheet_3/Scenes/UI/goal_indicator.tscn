@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5wa364xoklko"]
+
+[ext_resource type="Script" path="res://Scenes/UI/indicator_arrow.gd" id="1_5dp78"]
+[ext_resource type="Script" path="res://Scenes/UI/goal_indicator.gd" id="1_f0lnc"]
+
+[sub_resource type="Curve2D" id="Curve2D_7k3w6"]
+_data = {
+"points": PackedVector2Array(-63.836, 0, 63.836, 0, 0, 0, 0, -51.5323, 0, 51.5323, 100, 100, 56.8461, -0.233558, -56.8461, 0.233558, 0, 200, 0.209987, 59.4263, -0.209987, -59.4263, -100, 100, -55.6465, -0.629961, 55.6465, 0.629961, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="BoxMesh" id="BoxMesh_aiy25"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_17hb1"]
+
+[node name="GoalIndicator" type="Path2D"]
+z_index = 20
+curve = SubResource("Curve2D_7k3w6")
+script = ExtResource("1_f0lnc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="IndicatorArrow" type="MeshInstance2D" parent="."]
+modulate = Color(0.793982, 0.827055, 0.0710739, 1)
+scale = Vector2(12, 35)
+mesh = SubResource("BoxMesh_aiy25")
+script = ExtResource("1_5dp78")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="IndicatorArrow"]
+position = Vector2(0, -0.72731)
+rotation = 3.14159
+scale = Vector2(2, 0.5)
+mesh = SubResource("PrismMesh_17hb1")
